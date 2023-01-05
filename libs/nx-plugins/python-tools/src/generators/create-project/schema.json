@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema",
   "cli": "nx",
-  "$id": "CreateProject",
+  "$id": "NxPluginsCreateProject",
   "title": "",
   "type": "object",
   "properties": {
@@ -39,6 +39,10 @@
       "description": "Python package name",
       "x-prompt": "What package name would you like to use?"
     },
+    "moduleName": {
+      "type": "string",
+      "description": "Python module name"
+    },
     "description": {
       "type": "string",
       "description": "Project short description",
@@ -54,5 +58,5 @@
       "description": "A directory where the project is placed"
     }
   },
-  "required": ["name"]
+  "required": ["name", "type"]
 }

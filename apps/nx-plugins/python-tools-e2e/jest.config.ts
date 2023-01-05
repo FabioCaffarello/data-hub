@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'python-tools-e2e',
+  displayName: 'nx-plugins-python-tools-e2e',
   preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {

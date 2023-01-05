@@ -11,8 +11,8 @@ import * as path from 'path';
 import { PyprojectToml } from '@nxlv/python'
 import { parse, stringify } from '@iarna/toml';
 import { CreateProjectGeneratorSchema } from './schema';
-import spawn from 'cross-spawn';
-import chalk from 'chalk';
+import { spawnSync } from 'child_process';
+// import chalk from 'chalk';
 
 interface NormalizedSchema extends CreateProjectGeneratorSchema {
   projectName: string;
@@ -78,16 +78,30 @@ function updateRootPyprojectToml(
   }
 }
 
-function updateRootPoetryLock(tree: Tree, normalizedOptions: NormalizedSchema) {
+function updateRootPoetryLock(tree: Tree) {
   if (tree.exists('./pyproject.toml')) {
-    console.log(chalk`  Updating root {bgBlue poetry.lock}...`);
+    console.log(`Updating root poetry.lock...`);
     const executable = 'poetry';
-    const updateArgs = ['update', normalizedOptions.packageName];
-    spawn.sync(executable, updateArgs, {
-      shell: false,
-      stdio: 'inherit',
-    });
-    console.log(chalk`\n  {bgBlue poetry.lock} updated.\n`);
+    spawnSync(
+      executable,
+      [
+        'lock'
+      ],
+      {
+        shell: false,
+        stdio: 'inherit',
+      }
+    );
+    return executable
+
+    // console.log(chalk`  Updating root {bgBlue poetry.lock}...`);
+    // const executable = 'poetry';
+    // const updateArgs = ['update', normalizedOptions.packageName];
+    // spawn.sync(executable, updateArgs, {
+    //   shell: false,
+    //   stdio: 'inherit',
+    // });
+    // console.log(chalk`\n  {bgBlue poetry.lock} updated.\n`);
   }
 }
 
@@ -139,6 +153,6 @@ export default async function (tree: Tree, options: CreateProjectGeneratorSchema
   await formatFiles(tree);
 
   return () => {
-    updateRootPoetryLock(tree, normalizedOptions);
+    updateRootPoetryLock(tree);
   };
 }

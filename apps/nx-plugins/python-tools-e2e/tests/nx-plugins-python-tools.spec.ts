@@ -6,7 +6,7 @@ import {
   uniq,
 } from '@nrwl/nx-plugin/testing';
 
-describe('python-tools e2e', () => {
+describe('nx-plugins-python-tools e2e', () => {
   // Setting up individual workspaces per
   // test can cause e2e runs to take a long time.
   // For this reason, we recommend each suite only
@@ -15,7 +15,7 @@ describe('python-tools e2e', () => {
   // are not dependant on one another.
   beforeAll(() => {
     ensureNxProject(
-      '@data-hub/nx-plugins/python-tools',
+      '@data-hub/python-tools',
       'dist/libs/nx-plugins/python-tools'
     );
   });
@@ -26,10 +26,10 @@ describe('python-tools e2e', () => {
     runNxCommandAsync('reset');
   });
 
-  it('should create python-tools', async () => {
-    const project = uniq('python-tools');
+  it('should create nx-plugins-python-tools', async () => {
+    const project = uniq('nx-plugins-python-tools');
     await runNxCommandAsync(
-      `generate @data-hub/nx-plugins/python-tools:python-tools ${project}`
+      `generate @data-hub/python-tools:nx-plugins-python-tools ${project}`
     );
     const result = await runNxCommandAsync(`build ${project}`);
     expect(result.stdout).toContain('Executor ran');
@@ -37,9 +37,9 @@ describe('python-tools e2e', () => {
 
   describe('--directory', () => {
     it('should create src in the specified directory', async () => {
-      const project = uniq('python-tools');
+      const project = uniq('nx-plugins-python-tools');
       await runNxCommandAsync(
-        `generate @data-hub/nx-plugins/python-tools:python-tools ${project} --directory subdir`
+        `generate @data-hub/python-tools:nx-plugins-python-tools ${project} --directory subdir`
       );
       expect(() =>
         checkFilesExist(`libs/subdir/${project}/src/index.ts`)
@@ -49,13 +49,13 @@ describe('python-tools e2e', () => {
 
   describe('--tags', () => {
     it('should add tags to the project', async () => {
-      const projectName = uniq('python-tools');
+      const projectName = uniq('nx-plugins-python-tools');
       ensureNxProject(
         '@data-hub/python-tools',
         'dist/libs/nx-plugins/python-tools'
       );
       await runNxCommandAsync(
-        `generate @data-hub/nx-plugins/python-tools:python-tools ${projectName} --tags e2etag,e2ePackage`
+        `generate @data-hub/python-tools:nx-plugins-python-tools ${projectName} --tags e2etag,e2ePackage`
       );
       const project = readJson(`libs/${projectName}/project.json`);
       expect(project.tags).toEqual(['e2etag', 'e2ePackage']);

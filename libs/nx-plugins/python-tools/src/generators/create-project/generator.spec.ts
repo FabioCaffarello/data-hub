@@ -2,11 +2,11 @@ import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
 import { Tree, readProjectConfiguration } from '@nrwl/devkit';
 
 import generator from './generator';
-import { CreateProjectGeneratorSchema } from './schema';
+import { NxPluginsPythonToolsGeneratorSchema } from './schema';
 
-describe('create-project generator', () => {
+describe('nx-plugins-python-tools generator', () => {
   let appTree: Tree;
-  const options: CreateProjectGeneratorSchema = { name: 'test' };
+  const options: NxPluginsPythonToolsGeneratorSchema = { name: 'test' };
 
   beforeEach(() => {
     appTree = createTreeWithEmptyWorkspace();

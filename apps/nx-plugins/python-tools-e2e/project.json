@@ -7,7 +7,7 @@
     "e2e": {
       "executor": "@nrwl/nx-plugin:e2e",
       "options": {
-        "target": "nx-plugins-python-tools:build",
+        "target": "python-tools:build",
         "jestConfig": "apps/nx-plugins/python-tools-e2e/jest.config.ts"
       }
     }
