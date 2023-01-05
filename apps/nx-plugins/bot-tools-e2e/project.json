@@ -1,0 +1,17 @@
+{
+  "name": "bot-tools-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/nx-plugins/bot-tools-e2e/src",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/nx-plugin:e2e",
+      "options": {
+        "target": "bot-tools:build",
+        "jestConfig": "apps/nx-plugins/bot-tools-e2e/jest.config.ts"
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["bot-tools"]
+}

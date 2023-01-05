@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "python-tools",
+  "version": "0.0.1",
+  "generators": {
+    "create-project": {
+      "factory": "./src/generators/create-project/generator",
+      "schema": "./src/generators/create-project/schema.json",
+      "description": "create-project generator"
+    }
+  }
+}
