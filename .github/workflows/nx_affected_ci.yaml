@@ -26,7 +26,7 @@ jobs:
         with:
           python-version: 3.8
 
-      - run: git fetch origin develop
+      - run: git fetch origin main
 
       - name: Install Poetry
         uses: Gr1N/setup-poetry@v7
