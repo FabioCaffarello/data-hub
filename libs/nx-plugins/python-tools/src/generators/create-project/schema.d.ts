@@ -5,5 +5,5 @@ export interface CreateProjectGeneratorSchema {
   directory?: string;
   packageName: string;
   moduleName: string;
-  description: string;
+  description?: string;
 }

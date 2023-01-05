@@ -104,8 +104,7 @@ function updateRootPoetryLock(tree: Tree) {
     // console.log(chalk`\n  {bgBlue poetry.lock} updated.\n`);
   }
 }
-
-export default async function (tree: Tree, options: CreateProjectGeneratorSchema) {
+async function generator(tree: Tree, options: CreateProjectGeneratorSchema) {
   const normalizedOptions = normalizeOptions(tree, options);
   addProjectConfiguration(
     tree,
@@ -113,7 +112,7 @@ export default async function (tree: Tree, options: CreateProjectGeneratorSchema
     {
       root: normalizedOptions.projectRoot,
       projectType: normalizedOptions.type,
-      sourceRoot: `${normalizedOptions.projectRoot}/src`,
+      sourceRoot: `${normalizedOptions.projectRoot}/${normalizedOptions.moduleName}`,
       targets: {
         lock: {
           executor: '@nrwl/workspace:run-commands',
@@ -156,3 +155,6 @@ export default async function (tree: Tree, options: CreateProjectGeneratorSchema
     updateRootPoetryLock(tree);
   };
 }
+
+
+export default generator;

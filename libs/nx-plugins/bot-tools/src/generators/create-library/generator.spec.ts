@@ -6,7 +6,9 @@ import { CreateLibraryGeneratorSchema } from './schema';
 
 describe('create-library generator', () => {
   let appTree: Tree;
-  const options: CreateLibraryGeneratorSchema = { name: 'test' };
+  const options: CreateLibraryGeneratorSchema = {
+    name: 'test'
+  };
 
   beforeEach(() => {
     appTree = createTreeWithEmptyWorkspace();

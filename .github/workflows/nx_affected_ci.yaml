@@ -1,0 +1,53 @@
+name: Nx Affected CI
+
+on:
+  pull_request:
+    types:
+      - assigned
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [12.x]
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - run: git fetch origin develop
+
+      - name: Install Poetry
+        uses: Gr1N/setup-poetry@v7
+        with:
+          poetry-version: 1.2.0b3
+
+      - name: Load cached venv
+        id: cached-poetry-dependencies
+        uses: actions/cache@v2
+        with:
+          path: .venv
+          key: venv-${% raw %}{{ hashFiles('**/poetry.lock') }}{% endraw %}
+
+      - name: Poetry Install Dependencies
+        if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+        run: poetry install
+
+      - uses: nrwl/nx-set-shas@v2
+
+      - run: npm ci
+
+      - run: |
+          source ./.venv/bin/activate
+          npx nx affected --target=test --parallel=3

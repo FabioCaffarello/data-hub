@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`create-project generator should generate a python project into a different folder 1`] = `
+Object {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "shared-test",
+  "projectType": "application",
+  "root": "shared/test",
+  "sourceRoot": "./shared/test/shared_test",
+  "tags": Array [],
+  "targets": Object {
+    "add": Object {
+      "executor": "@nxlv/python:add",
+      "options": Object {},
+    },
+    "install": Object {
+      "executor": "@nxlv/python:install",
+      "options": Object {
+        "args": "",
+        "cacheDir": ".cache/pypoetry",
+        "debug": false,
+        "silent": false,
+        "verbose": false,
+      },
+    },
+    "lock": Object {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": Object {
+        "command": "poetry lock --no-update",
+        "cwd": "./shared/test",
+      },
+    },
+    "remove": Object {
+      "executor": "@nxlv/python:remove",
+      "options": Object {},
+    },
+    "update": Object {
+      "executor": "@nxlv/python:update",
+      "options": Object {},
+    },
+  },
+}
+`;

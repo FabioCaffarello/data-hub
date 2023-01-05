@@ -8,6 +8,14 @@ readme = "README.md"
   [tool.poetry.dependencies]
   python = ">=3.8,<3.10"
 
+    [tool.poetry.dependencies.shared-core]
+    path = "libs/shared/python-tools/core"
+    develop = true
+
+    [tool.poetry.dependencies.shared-development]
+    path = "libs/shared/python-tools/development"
+    develop = true
+
 [build-system]
 requires = [ "poetry-core" ]
 build-backend = "poetry.core.masonry.api"

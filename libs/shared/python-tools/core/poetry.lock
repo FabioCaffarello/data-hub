@@ -2,7 +2,7 @@
 name = "aspy-refactor-imports"
 version = "3.0.2"
 description = "Utilities for refactoring imports in python-like syntax."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -10,7 +10,7 @@ python-versions = ">=3.7"
 name = "atomicwrites"
 version = "1.4.1"
 description = "Atomic file writes."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -18,7 +18,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 name = "attrs"
 version = "22.2.0"
 description = "Classes Without Boilerplate"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -34,7 +34,7 @@ tests_no_zope = ["hypothesis", "pympler", "pytest (>=4.3.0)", "pytest-xdist", "c
 name = "autopep8"
 version = "1.5.7"
 description = "A tool that automatically formats Python code to conform to the PEP 8 style guide"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -46,7 +46,7 @@ toml = "*"
 name = "boto3"
 version = "1.26.43"
 description = "The AWS SDK for Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">= 3.7"
 
@@ -62,7 +62,7 @@ crt = ["botocore[crt] (>=1.21.0,<2.0a0)"]
 name = "botocore"
 version = "1.29.43"
 description = "Low-level, data-driven core of boto 3."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">= 3.7"
 
@@ -78,7 +78,7 @@ crt = ["awscrt (==0.15.3)"]
 name = "colorama"
 version = "0.4.6"
 description = "Cross-platform colored terminal text."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7"
 
@@ -86,7 +86,7 @@ python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*,!=3.5.*,!=3.6.*,>=2.7
 name = "coverage"
 version = "7.0.3"
 description = "Code coverage measurement for Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -100,7 +100,7 @@ toml = ["tomli"]
 name = "flake8"
 version = "4.0.1"
 description = "the modular source code checker: pep8 pyflakes and co"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -113,7 +113,7 @@ pyflakes = ">=2.4.0,<2.5.0"
 name = "flake8-docstrings"
 version = "1.6.0"
 description = "Extension for flake8 which uses pydocstyle to check docstrings"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -125,7 +125,7 @@ pydocstyle = ">=2.1"
 name = "flake8-isort"
 version = "4.1.1"
 description = "flake8 plugin that integrates isort ."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -141,7 +141,7 @@ test = ["pytest-cov"]
 name = "flake8-plugin-utils"
 version = "1.3.2"
 description = "The package provides base classes and utils for flake8 plugin writing"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6,<4.0"
 
@@ -149,7 +149,7 @@ python-versions = ">=3.6,<4.0"
 name = "flake8-print"
 version = "5.0.0"
 description = "print statement checker plugin for flake8"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -161,7 +161,7 @@ pycodestyle = "*"
 name = "flake8-pytest-style"
 version = "1.6.0"
 description = "A flake8 plugin checking common style issues or inconsistencies with pytest-based tests."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6.2,<4.0.0"
 
@@ -172,7 +172,7 @@ flake8-plugin-utils = ">=1.3.2,<2.0.0"
 name = "flake8-type-checking"
 version = "2.0.6"
 description = "A flake8 plugin for managing type-checking imports & forward references"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.8,<4.0"
 
@@ -184,7 +184,7 @@ flake8 = "*"
 name = "freezegun"
 version = "1.2.1"
 description = "Let your Python tests travel through time"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -195,7 +195,7 @@ python-dateutil = ">=2.7"
 name = "iniconfig"
 version = "1.1.1"
 description = "iniconfig: brain-dead simple config-ini parsing"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -203,7 +203,7 @@ python-versions = "*"
 name = "isort"
 version = "5.11.4"
 description = "A Python utility / library to sort Python imports."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7.0"
 
@@ -217,7 +217,7 @@ plugins = ["setuptools"]
 name = "jmespath"
 version = "1.0.1"
 description = "JSON Matching Expressions"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -225,7 +225,7 @@ python-versions = ">=3.7"
 name = "mccabe"
 version = "0.6.1"
 description = "McCabe checker, plugin for flake8"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -233,7 +233,7 @@ python-versions = "*"
 name = "packaging"
 version = "22.0"
 description = "Core utilities for Python packages"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -241,7 +241,7 @@ python-versions = ">=3.7"
 name = "pluggy"
 version = "1.0.0"
 description = "plugin and hook calling mechanisms for python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -253,7 +253,7 @@ dev = ["tox", "pre-commit"]
 name = "py"
 version = "1.11.0"
 description = "library with cross-python path, ini-parsing, io, code, log facilities"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -261,7 +261,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 name = "pycodestyle"
 version = "2.8.0"
 description = "Python style guide checker"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 
@@ -269,7 +269,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*"
 name = "pydocstyle"
 version = "6.2.2"
 description = "Python docstring style checker"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -283,7 +283,7 @@ toml = ["tomli (>=1.2.3)"]
 name = "pyfakefs"
 version = "4.6.2"
 description = "pyfakefs implements a fake file system that mocks the Python file system modules."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -291,7 +291,7 @@ python-versions = ">=3.6"
 name = "pyflakes"
 version = "2.4.0"
 description = "passive checker of Python programs"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 
@@ -299,7 +299,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
 name = "pytest"
 version = "7.1.2"
 description = "pytest: simple powerful testing with Python"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -320,7 +320,7 @@ testing = ["argcomplete", "hypothesis (>=3.56)", "mock", "nose", "pygments (>=2.
 name = "pytest-asyncio"
 version = "0.19.0"
 description = "Pytest support for asyncio"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -334,7 +334,7 @@ testing = ["coverage (>=6.2)", "hypothesis (>=5.7.1)", "flaky (>=3.5.0)", "mypy 
 name = "pytest-cov"
 version = "3.0.0"
 description = "Pytest plugin for measuring coverage."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -349,7 +349,7 @@ testing = ["virtualenv", "pytest-xdist", "six", "process-tests", "hunter", "fiel
 name = "pytest-env"
 version = "0.6.2"
 description = "py.test plugin that allows you to add environment variables."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -360,7 +360,7 @@ pytest = ">=2.6.0"
 name = "pytest-html"
 version = "3.1.1"
 description = "pytest plugin for generating HTML reports"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.6"
 
@@ -372,7 +372,7 @@ pytest-metadata = "*"
 name = "pytest-metadata"
 version = "2.0.4"
 description = "pytest plugin for test session metadata"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7,<4.0"
 
@@ -383,7 +383,7 @@ pytest = ">=3.0.0,<8.0.0"
 name = "pytest-sugar"
 version = "0.9.5"
 description = "pytest-sugar is a plugin for pytest that changes the default look and feel of pytest (e.g. progressbar, show tests that fail instantly)."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -396,7 +396,7 @@ termcolor = ">=1.1.0"
 name = "python-dateutil"
 version = "2.8.2"
 description = "Extensions to the standard Python datetime module"
-category = "main"
+category = "dev"
 optional = false
 python-versions = "!=3.0.*,!=3.1.*,!=3.2.*,>=2.7"
 
@@ -415,7 +415,7 @@ python-versions = ">=3.5"
 name = "s3transfer"
 version = "0.6.0"
 description = "An Amazon S3 Transfer Manager"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">= 3.7"
 
@@ -426,26 +426,10 @@ botocore = ">=1.12.36,<2.0a.0"
 crt = ["botocore[crt] (>=1.20.29,<2.0a.0)"]
 
 [[package]]
-name = "shared-core"
-version = "1.0.0"
-description = "Python Shared Core."
-category = "main"
-optional = false
-  python-versions = ">=3.8,<3.10"
-develop = true
-
-[package.dependencies]
-python-json-logger = "^2.0.2"
-
-[package.source]
-type = "directory"
-url = "libs/shared/python-tools/core"
-
-[[package]]
 name = "shared-development"
 version = "1.0.0"
 description = "Python Shared Unit Test and Development."
-category = "main"
+category = "dev"
 optional = false
   python-versions = ">=3.8,<3.10"
 develop = true
@@ -470,13 +454,13 @@ pytest-sugar = "0.9.5"
 
 [package.source]
 type = "directory"
-url = "libs/shared/python-tools/development"
+url = "../development"
 
 [[package]]
 name = "six"
 version = "1.16.0"
 description = "Python 2 and 3 compatibility utilities"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 
@@ -484,7 +468,7 @@ python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 name = "snowballstemmer"
 version = "2.2.0"
 description = "This package provides 29 stemmers for 28 languages generated from Snowball algorithms."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -492,7 +476,7 @@ python-versions = "*"
 name = "termcolor"
 version = "2.2.0"
 description = "ANSI color formatting for output in terminal"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -503,7 +487,7 @@ tests = ["pytest", "pytest-cov"]
 name = "testfixtures"
 version = "6.18.5"
 description = "A collection of helpers and mock objects for unit tests and doc tests."
-category = "main"
+category = "dev"
 optional = false
 python-versions = "*"
 
@@ -516,7 +500,7 @@ test = ["pytest (>=3.6)", "pytest-cov", "pytest-django", "zope-component", "sybi
 name = "toml"
 version = "0.10.2"
 description = "Python Library for Tom's Obvious, Minimal Language"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 
@@ -524,7 +508,7 @@ python-versions = ">=2.6, !=3.0.*, !=3.1.*, !=3.2.*"
 name = "tomli"
 version = "2.0.1"
 description = "A lil' TOML parser"
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=3.7"
 
@@ -532,7 +516,7 @@ python-versions = ">=3.7"
 name = "urllib3"
 version = "1.26.13"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
-category = "main"
+category = "dev"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*"
 
@@ -544,7 +528,7 @@ socks = ["PySocks (>=1.5.6,!=1.5.7,<2.0)"]
 [metadata]
 lock-version = "1.1"
   python-versions = ">=3.8,<3.10"
-content-hash = "c917974c56cbcfaba734b800cab10e413758ac78bd1b626afd78ea4319850527"
+content-hash = "f1c74487398cc179dd0f9798d4bef7de7270ac625e8a5a718257b08e69b8efe7"
 
 [metadata.files]
 aspy-refactor-imports = [
@@ -742,7 +726,6 @@ s3transfer = [
     {file = "s3transfer-0.6.0-py3-none-any.whl", hash = "sha256:06176b74f3a15f61f1b4f25a1fc29a4429040b7647133a463da8fa5bd28d5ecd"},
     {file = "s3transfer-0.6.0.tar.gz", hash = "sha256:2ed07d3866f523cc561bf4a00fc5535827981b117dd7876f036b0c1aca42c947"},
 ]
-shared-core = []
 shared-development = []
 six = [
     {file = "six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
