@@ -1,0 +1,21 @@
+{
+  "name": "Ubuntu",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "context": ".."
+  },
+  "workspaceMount": "source=${localWorkspaceFolder},target=/root/workspace/,type=bind",
+  "workspaceFolder": "/root/workspace/",
+  "settings": {
+    "python.defaultInterpreterPath": "/root/workspace/.venv/bin/python"
+  },
+  "extensions": [
+    "editorconfig.editorconfig",
+    "ms-python.vscode-pylance",
+    "ms-python.python",
+    "ms-vscode-remote.remote-containers",
+    "nrwl.angular-console",
+    "esbenp.prettier-vscode"
+  ],
+  "remoteUser": "root"
+}
