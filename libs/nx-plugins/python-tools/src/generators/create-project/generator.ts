@@ -11,7 +11,6 @@ import * as path from 'path';
 import { PyprojectToml } from '@nxlv/python'
 import { parse, stringify } from '@iarna/toml';
 import { CreateProjectGeneratorSchema } from './schema';
-// import { spawnSync } from 'child_process';
 import spawn from 'cross-spawn';
 
 interface NormalizedSchema extends CreateProjectGeneratorSchema {
