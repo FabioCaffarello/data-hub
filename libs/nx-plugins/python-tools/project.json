@@ -1,5 +1,5 @@
 {
-  "name": "python-tools",
+  "name": "nx-plugins-python-tools",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/nx-plugins/python-tools/src",
   "projectType": "library",

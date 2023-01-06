@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'bot-tools-e2e',
+  displayName: 'nx-plugins-bot-tools-e2e',
   preset: '../../jest.preset.js',
   globals: {
     'ts-jest': {

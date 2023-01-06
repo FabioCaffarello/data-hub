@@ -1,5 +1,5 @@
 {
-  "name": "bot-tools",
+  "name": "nx-plugins-bot-tools",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/nx-plugins/bot-tools/src",
   "projectType": "library",

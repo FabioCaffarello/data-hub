@@ -13,6 +13,6 @@
     "src/**/*.test.ts",
     "src/**/*.spec.ts",
     "src/**/*.d.ts",
-    "../../../temp/generator.spec.ts"
+    "src/generators/create-project/generator.spec.ts"
   ]
 }

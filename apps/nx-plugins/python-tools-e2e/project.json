@@ -13,5 +13,5 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["python-tools"]
+  "implicitDependencies": ["nx-plugins-python-tools"]
 }

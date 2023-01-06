@@ -9,7 +9,7 @@
   },
   "include": [
     "src/**/*.ts",
-    "../../../temp/generator.spec.ts"
+    "src/generators/create-project/generator.spec.ts"
   ],
   "exclude": [
     "jest.config.ts",

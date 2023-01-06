@@ -1,5 +1,5 @@
 {
-  "name": "bot-tools-e2e",
+  "name": "nx-plugins-bot-tools-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/nx-plugins/bot-tools-e2e/src",
@@ -13,5 +13,5 @@
     }
   },
   "tags": [],
-  "implicitDependencies": ["bot-tools"]
+  "implicitDependencies": ["nx-plugins-bot-tools"]
 }
