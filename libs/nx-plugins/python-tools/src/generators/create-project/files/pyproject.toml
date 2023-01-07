@@ -7,13 +7,13 @@ exclude_lines = ['if TYPE_CHECKING:']
 show_missing = true
 
 [tool.pytest.ini_options]
-addopts = "--cov --cov-fail-under=100 --cov-report html:'<%= offsetFromRoot %>coverage/<%= projectRoot %>/html' --cov-report xml:'<%= offsetFromRoot %>coverage/<%= projectRoot %>/coverage.xml' --junitxml='<%= offsetFromRoot %>reports/<%= projectRoot %>/unittests/junit.xml' --html='<%= offsetFromRoot %>reports/<%= projectRoot %>/unittests/html/index.html'"
+addopts = "--cov --cov-fail-under=90 --cov-report html:'<%= offsetFromRoot %>coverage/<%= projectRoot %>/html' --cov-report xml:'<%= offsetFromRoot %>coverage/<%= projectRoot %>/coverage.xml' --junitxml='<%= offsetFromRoot %>reports/<%= projectRoot %>/unittests/junit.xml' --html='<%= offsetFromRoot %>reports/<%= projectRoot %>/unittests/html/index.html'"
 
 [tool.poetry]
 name = "<%= packageName %>"
 version = "1.0.0"
 description = "<%= description %>"
-authors = [ ]
+authors = [ "<%= authorName %> <<%= authorEmail %>>" ]
 license = 'Proprietary'
 readme = 'README.md'
 

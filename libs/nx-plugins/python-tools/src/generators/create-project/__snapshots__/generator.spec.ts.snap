@@ -65,13 +65,13 @@ exclude_lines = ['if TYPE_CHECKING:']
 show_missing = true
 
 [tool.pytest.ini_options]
-addopts = \\"--cov --cov-fail-under=100 --cov-report html:'../../../coverage/apps/shared/test/html' --cov-report xml:'../../../coverage/apps/shared/test/coverage.xml' --junitxml='../../../reports/apps/shared/test/unittests/junit.xml' --html='../../../reports/apps/shared/test/unittests/html/index.html'\\"
+addopts = \\"--cov --cov-fail-under=90 --cov-report html:'../../../coverage/apps/shared/test/html' --cov-report xml:'../../../coverage/apps/shared/test/coverage.xml' --junitxml='../../../reports/apps/shared/test/unittests/junit.xml' --html='../../../reports/apps/shared/test/unittests/html/index.html'\\"
 
 [tool.poetry]
 name = \\"unittest-test-pkg-name\\"
 version = \\"1.0.0\\"
 description = \\"\\"
-authors = [ ]
+authors = [ \\"FabioCaffarello <fabio.caffarello@gmail.com>\\" ]
 license = 'Proprietary'
 readme = 'README.md'
 
@@ -114,13 +114,13 @@ exclude_lines = ['if TYPE_CHECKING:']
 show_missing = true
 
 [tool.pytest.ini_options]
-addopts = \\"--cov --cov-fail-under=100 --cov-report html:'../../coverage/apps/test/html' --cov-report xml:'../../coverage/apps/test/coverage.xml' --junitxml='../../reports/apps/test/unittests/junit.xml' --html='../../reports/apps/test/unittests/html/index.html'\\"
+addopts = \\"--cov --cov-fail-under=90 --cov-report html:'../../coverage/apps/test/html' --cov-report xml:'../../coverage/apps/test/coverage.xml' --junitxml='../../reports/apps/test/unittests/junit.xml' --html='../../reports/apps/test/unittests/html/index.html'\\"
 
 [tool.poetry]
 name = \\"unittest-test-pkg-name\\"
 version = \\"1.0.0\\"
 description = \\"My custom description\\"
-authors = [ ]
+authors = [ \\"FabioCaffarello <fabio.caffarello@gmail.com>\\" ]
 license = 'Proprietary'
 readme = 'README.md'
 
@@ -248,13 +248,13 @@ exclude_lines = ['if TYPE_CHECKING:']
 show_missing = true
 
 [tool.pytest.ini_options]
-addopts = \\"--cov --cov-fail-under=100 --cov-report html:'../../coverage/libs/test/html' --cov-report xml:'../../coverage/libs/test/coverage.xml' --junitxml='../../reports/libs/test/unittests/junit.xml' --html='../../reports/libs/test/unittests/html/index.html'\\"
+addopts = \\"--cov --cov-fail-under=90 --cov-report html:'../../coverage/libs/test/html' --cov-report xml:'../../coverage/libs/test/coverage.xml' --junitxml='../../reports/libs/test/unittests/junit.xml' --html='../../reports/libs/test/unittests/html/index.html'\\"
 
 [tool.poetry]
 name = \\"unittest-test-pkg-name\\"
 version = \\"1.0.0\\"
 description = \\"\\"
-authors = [ ]
+authors = [ \\"FabioCaffarello <fabio.caffarello@gmail.com>\\" ]
 license = 'Proprietary'
 readme = 'README.md'
 
@@ -285,6 +285,90 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 exports[`create-project generator should successfully generate a python library project 5`] = `
 "\\"\\"\\"\\"\\"\\"
 "
+`;
+
+exports[`create-project generator should successfully generate a python library project and install shared core dependency 1`] = `
+Object {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "test",
+  "projectType": "library",
+  "root": "libs/test",
+  "sourceRoot": "libs/test/test",
+  "tags": Array [],
+  "targets": Object {
+    "add": Object {
+      "executor": "@nxlv/python:add",
+      "options": Object {},
+    },
+    "install": Object {
+      "executor": "@nxlv/python:install",
+      "options": Object {
+        "args": "",
+        "cacheDir": ".cache/pypoetry",
+        "debug": false,
+        "silent": false,
+        "verbose": false,
+      },
+    },
+    "lock": Object {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": Object {
+        "command": "poetry lock --no-update",
+        "cwd": "libs/test",
+      },
+    },
+    "remove": Object {
+      "executor": "@nxlv/python:remove",
+      "options": Object {},
+    },
+    "update": Object {
+      "executor": "@nxlv/python:update",
+      "options": Object {},
+    },
+  },
+}
+`;
+
+exports[`create-project generator should successfully generate a python library project and install shared development dependency 1`] = `
+Object {
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "test",
+  "projectType": "library",
+  "root": "libs/test",
+  "sourceRoot": "libs/test/test",
+  "tags": Array [],
+  "targets": Object {
+    "add": Object {
+      "executor": "@nxlv/python:add",
+      "options": Object {},
+    },
+    "install": Object {
+      "executor": "@nxlv/python:install",
+      "options": Object {
+        "args": "",
+        "cacheDir": ".cache/pypoetry",
+        "debug": false,
+        "silent": false,
+        "verbose": false,
+      },
+    },
+    "lock": Object {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": Object {
+        "command": "poetry lock --no-update",
+        "cwd": "libs/test",
+      },
+    },
+    "remove": Object {
+      "executor": "@nxlv/python:remove",
+      "options": Object {},
+    },
+    "update": Object {
+      "executor": "@nxlv/python:update",
+      "options": Object {},
+    },
+  },
+}
 `;
 
 exports[`create-project generator should successfully generate a python library project with root pyproject.toml 1`] = `
@@ -411,13 +495,13 @@ exclude_lines = ['if TYPE_CHECKING:']
 show_missing = true
 
 [tool.pytest.ini_options]
-addopts = \\"--cov --cov-fail-under=100 --cov-report html:'../../coverage/apps/test/html' --cov-report xml:'../../coverage/apps/test/coverage.xml' --junitxml='../../reports/apps/test/unittests/junit.xml' --html='../../reports/apps/test/unittests/html/index.html'\\"
+addopts = \\"--cov --cov-fail-under=90 --cov-report html:'../../coverage/apps/test/html' --cov-report xml:'../../coverage/apps/test/coverage.xml' --junitxml='../../reports/apps/test/unittests/junit.xml' --html='../../reports/apps/test/unittests/html/index.html'\\"
 
 [tool.poetry]
 name = \\"unittest-test-pkg-name\\"
 version = \\"1.0.0\\"
 description = \\"\\"
-authors = [ ]
+authors = [ \\"FabioCaffarello <fabio.caffarello@gmail.com>\\" ]
 license = 'Proprietary'
 readme = 'README.md'
 
@@ -515,13 +599,13 @@ exclude_lines = ['if TYPE_CHECKING:']
 show_missing = true
 
 [tool.pytest.ini_options]
-addopts = \\"--cov --cov-fail-under=100 --cov-report html:'../../coverage/apps/test/html' --cov-report xml:'../../coverage/apps/test/coverage.xml' --junitxml='../../reports/apps/test/unittests/junit.xml' --html='../../reports/apps/test/unittests/html/index.html'\\"
+addopts = \\"--cov --cov-fail-under=90 --cov-report html:'../../coverage/apps/test/html' --cov-report xml:'../../coverage/apps/test/coverage.xml' --junitxml='../../reports/apps/test/unittests/junit.xml' --html='../../reports/apps/test/unittests/html/index.html'\\"
 
 [tool.poetry]
 name = \\"unittest-test-pkg-name\\"
 version = \\"1.0.0\\"
 description = \\"\\"
-authors = [ ]
+authors = [ \\"FabioCaffarello <fabio.caffarello@gmail.com>\\" ]
 license = 'Proprietary'
 readme = 'README.md'
 

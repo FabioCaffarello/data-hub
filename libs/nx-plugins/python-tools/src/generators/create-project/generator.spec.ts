@@ -96,6 +96,44 @@ describe('create-project generator', () => {
       stdio: 'inherit',
     });
   });
+
+  it('should successfully generate a python library project and install shared core dependency', async () => {
+    const callbackTask = await generator(appTree, { ...options, type: 'library' });
+    callbackTask();
+    const config = readProjectConfiguration(appTree, 'test');
+    expect(config).toMatchSnapshot();
+    expect(spawnSyncMock).toHaveBeenCalledWith('npx', [
+      'nx',
+      'run',
+      `${config.name}:add`,
+      '--name',
+      'shared-python-tools-core',
+      '--local',
+    ], {
+      shell: false,
+      stdio: 'inherit',
+    });
+  });
+
+  it('should successfully generate a python library project and install shared development dependency', async () => {
+    const callbackTask = await generator(appTree, { ...options, type: 'library' });
+    callbackTask();
+    const config = readProjectConfiguration(appTree, 'test');
+    expect(config).toMatchSnapshot();
+    expect(spawnSyncMock).toHaveBeenCalledWith('npx', [
+      'nx',
+      'run',
+      `${config.name}:add`,
+      '--name',
+      'shared-python-tools-development',
+      '--local',
+      '--group',
+      'dev',
+    ], {
+      shell: false,
+      stdio: 'inherit',
+    });
+  });
 });
 
 

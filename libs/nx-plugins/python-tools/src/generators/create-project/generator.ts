@@ -11,7 +11,9 @@ import * as path from 'path';
 import { PyprojectToml } from '@nxlv/python'
 import { parse, stringify } from '@iarna/toml';
 import { CreateProjectGeneratorSchema } from './schema';
+import { getCurrentGitUserName, getCurrentGitUserEmail } from '../../../../utils/git/commands.git'
 import spawn from 'cross-spawn';
+
 
 interface NormalizedSchema extends CreateProjectGeneratorSchema {
   projectName: string;
@@ -19,6 +21,8 @@ interface NormalizedSchema extends CreateProjectGeneratorSchema {
   projectDirectory: string;
   parsedTags: string[];
   moduleName: string;
+  authorName: string;
+  authorEmail: string;
 }
 
 function normalizeOptions(tree: Tree, options: CreateProjectGeneratorSchema): NormalizedSchema {
@@ -39,6 +43,9 @@ function normalizeOptions(tree: Tree, options: CreateProjectGeneratorSchema): No
     ? options.tags.split(',').map((s) => s.trim())
     : [];
 
+  const authorName = getCurrentGitUserName()
+  const authorEmail = getCurrentGitUserEmail()
+
   return {
     ...options,
     description: options.description ?? '',
@@ -47,6 +54,8 @@ function normalizeOptions(tree: Tree, options: CreateProjectGeneratorSchema): No
     projectDirectory,
     parsedTags,
     moduleName,
+    authorName,
+    authorEmail,
   };
 }
 
@@ -86,9 +95,52 @@ function updateRootPoetryLock(tree: Tree, normalizedOptions: NormalizedSchema) {
       shell: false,
       stdio: 'inherit',
     });
-    return executable
+    return
   }
 }
+
+function installSharedPythonCore(normalizedOptions: NormalizedSchema) {
+  console.log(
+    `Add shared python core to the project ${normalizedOptions.projectName}`
+  );
+  const executable = 'npx';
+  const installArgs = [
+    'nx',
+    'run',
+    `${normalizedOptions.projectName}:add`,
+    '--name',
+    'shared-python-tools-core',
+    '--local',
+  ];
+  spawn.sync(executable, installArgs, {
+    shell: false,
+    stdio: 'inherit',
+  });
+  return
+}
+
+function installSharedPythonDevelopment(normalizedOptions: NormalizedSchema) {
+  console.log(
+    `Add shared python development to the project ${normalizedOptions.projectName}`
+  );
+  const executable = 'npx';
+  const installArgs = [
+    'nx',
+    'run',
+    `${normalizedOptions.projectName}:add`,
+    '--name',
+    'shared-python-tools-development',
+    '--local',
+    '--group',
+    'dev',
+  ];
+  spawn.sync(executable, installArgs, {
+    shell: false,
+    stdio: 'inherit',
+  });
+  return
+}
+
 async function generator(tree: Tree, options: CreateProjectGeneratorSchema) {
   const normalizedOptions = normalizeOptions(tree, options);
   addProjectConfiguration(
@@ -137,6 +189,8 @@ async function generator(tree: Tree, options: CreateProjectGeneratorSchema) {
   await formatFiles(tree);
 
   return () => {
+    installSharedPythonCore(normalizedOptions);
+    installSharedPythonDevelopment(normalizedOptions);
     updateRootPoetryLock(tree, normalizedOptions);
   };
 }

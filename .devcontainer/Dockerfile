@@ -24,11 +24,8 @@ RUN apt-get install -y \
     liblzma-dev \
     gnupg2
 
-# zsh
-# Default powerline10k theme, no plugins installed
 RUN sh -c "$(wget -O- https://github.com/deluan/zsh-in-docker/releases/download/v1.1.4/zsh-in-docker.sh)"
 
-# Python Config
 RUN git clone https://github.com/pyenv/pyenv.git /opt/pyenv
 ENV PYENV_ROOT="/opt/pyenv"
 ENV PATH="/opt/pyenv/shims:/opt/pyenv/bin:$PATH"
