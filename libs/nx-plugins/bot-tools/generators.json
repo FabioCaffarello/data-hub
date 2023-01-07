@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "bot-tools",
+  "version": "0.0.1",
+  "generators": {
+    "create-library": {
+      "factory": "./src/generators/create-library/generator",
+      "schema": "./src/generators/create-library/schema.json",
+      "description": "create-library generator"
+    }
+  }
+}

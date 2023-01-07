@@ -1,5 +1,6 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+
 # compiled output
 dist
 tmp
@@ -33,6 +34,31 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+
+# Poetry
+.cache
+.Python
+*.pyc
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv
+
+# Reports
+reports/
+.coverage
 
 # System Files
 .DS_Store
