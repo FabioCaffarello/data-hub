@@ -16,6 +16,21 @@ readme = "README.md"
     path = "libs/shared/python-tools/development"
     develop = true
 
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.4.2"
+mkdocs-material = "^9.0.2"
+mkdocs-material-extensions = "^1.1.1"
+mkdocs-autorefs = "^0.4.1"
+mkdocstrings = "^0.19.1"
+mkdocstrings-python = "^0.8.3"
+mkdocs-gen-files = "^0.4.0"
+mkdocs-literate-nav = "^0.6.0"
+mkdocs-include-markdown-plugin = "^4.0.3"
+mkdocs-swagger-ui-tag = "^0.5.1"
+plantuml-markdown = "^3.8.0"
+pydoc-markdown = "^4.6.4"
+
 [build-system]
 requires = [ "poetry-core" ]
 build-backend = "poetry.core.masonry.api"
