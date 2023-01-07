@@ -95,7 +95,6 @@ function updateRootPoetryLock(tree: Tree, normalizedOptions: NormalizedSchema) {
       shell: false,
       stdio: 'inherit',
     });
-    return
   }
 }
 
@@ -116,7 +115,6 @@ function installSharedPythonCore(normalizedOptions: NormalizedSchema) {
     shell: false,
     stdio: 'inherit',
   });
-  return
 }
 
 function installSharedPythonDevelopment(normalizedOptions: NormalizedSchema) {
@@ -138,7 +136,6 @@ function installSharedPythonDevelopment(normalizedOptions: NormalizedSchema) {
     shell: false,
     stdio: 'inherit',
   });
-  return
 }
 
 async function generator(tree: Tree, options: CreateProjectGeneratorSchema) {

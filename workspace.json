@@ -6,6 +6,7 @@
     "nx-plugins-bot-tools-e2e": "apps/nx-plugins/bot-tools-e2e",
     "nx-plugins-python-tools": "libs/nx-plugins/python-tools",
     "nx-plugins-python-tools-e2e": "apps/nx-plugins/python-tools-e2e",
+    "self-docs-docs-service": "apps/self-docs/docs-service",
     "shared-python-tools-core": "libs/shared/python-tools/core",
     "shared-python-tools-development": "libs/shared/python-tools/development"
   }

@@ -1,0 +1,28 @@
+[tool.coverage.run]
+branch = true
+source = [ "app" ]
+
+[tool.coverage.report]
+exclude_lines = ['if TYPE_CHECKING:']
+show_missing = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-fail-under=90 --cov-report html:'../../../coverage/apps/self-docs/docs-service/html' --cov-report xml:'../../../coverage/apps/self-docs/docs-service/coverage.xml' --junitxml='../../../reports/apps/self-docs/docs-service/unittests/junit.xml' --html='../../../reports/apps/self-docs/docs-service/unittests/html/index.html'"
+
+[tool.poetry]
+name = "docs-service"
+version = "1.0.0"
+description = "Service for self-generated documentation."
+authors = [ "FabioCaffarello <fabio.caffarello@gmail.com>" ]
+license = 'Proprietary'
+readme = 'README.md'
+
+  [[tool.poetry.packages]]
+  include = "app"
+
+  [tool.poetry.dependencies]
+  python = ">=3.8,<3.10"
+
+[build-system]
+requires = ["poetry-core==1.1.0b3"]
+build-backend = "poetry.core.masonry.api"

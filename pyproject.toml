@@ -16,6 +16,10 @@ readme = "README.md"
     path = "libs/shared/python-tools/development"
     develop = true
 
+    [tool.poetry.dependencies.docs-service]
+    path = "apps/self-docs/docs-service"
+    develop = true
+
 [build-system]
 requires = [ "poetry-core" ]
 build-backend = "poetry.core.masonry.api"
