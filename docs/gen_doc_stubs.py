@@ -43,13 +43,13 @@ for project_name, project_path in workspace["projects"].items():
                     if edit_path:
                         mkdocs_gen_files.set_edit_path(doc_path, f"../{path}")
 
-            for path in src_root.glob(f"{project['sourceRoot']}/**/*[!__init__].py"):
-                doc_path = Path("reference", path.relative_to(src_root)).with_suffix(".md")
-                doc_normalized_path = str(doc_path).replace(project_path, f"{project_path}/code_reference")
-                with mkdocs_gen_files.open(doc_normalized_path, "w") as f:
-                    ident = ".".join(path.with_suffix("").parts)
-                    f.write(f"::: {ident}")
+            # for path in src_root.glob(f"{project['sourceRoot']}/**/*[!__init__].py"):
+            #     doc_path = Path("reference", path.relative_to(src_root)).with_suffix(".md")
+            #     doc_normalized_path = str(doc_path).replace(project_path, f"{project_path}/code_reference")
+            #     with mkdocs_gen_files.open(doc_normalized_path, "w") as f:
+            #         ident = ".".join(path.with_suffix("").parts)
+            #         f.write(f"::: {ident}")
 
-                mkdocs_gen_files.set_edit_path(doc_normalized_path, f"../{path}")
+            #     mkdocs_gen_files.set_edit_path(doc_normalized_path, f"../{path}")
     except Exception:
         pass
