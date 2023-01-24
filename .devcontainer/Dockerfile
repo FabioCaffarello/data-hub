@@ -37,7 +37,8 @@ RUN apt-get install -y \
     openssh-client \
     gcc \
     g++ \
-    sqlite3
+    sqlite3 \
+    gh
 
 RUN apt-get update && apt-get install -y protobuf-compiler
 
