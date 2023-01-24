@@ -2,13 +2,13 @@
   "name": "shared-python-tools-core",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/shared/python-tools/core/shared_core",
+  "sourceRoot": "libs/shared/python_tools/core/shared_core",
   "targets": {
     "lock": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "command": "poetry lock --no-update",
-        "cwd": "libs/shared/python-tools/core"
+        "cwd": "libs/shared/python_tools/core"
       }
     },
     "add": {
@@ -36,14 +36,14 @@
     "test": {
       "executor": "@nrwl/workspace:run-commands",
       "outputs": [
-        "reports/libs/shared/python-tools/core/unittests",
-        "coverage/libs/shared/python-tools/core"
+        "reports/libs/shared/python_tools/core/unittests",
+        "coverage/libs/shared/python_tools/core"
       ],
       "options": {
         "command": "poetry run pytest tests/",
-        "cwd": "libs/shared/python-tools/core"
+        "cwd": "libs/shared/python_tools/core"
       }
     }
   },
-  "tags": ["core"]
+  "tags": []
 }

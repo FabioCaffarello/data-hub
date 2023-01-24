@@ -2,11 +2,13 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "ingestors-base-spider": "libs/ingestors/base-spider",
+    "ingestors-services-bot-inputer": "apps/ingestors-services/bot-inputer",
     "nx-plugins-bot-tools": "libs/nx-plugins/bot-tools",
     "nx-plugins-bot-tools-e2e": "apps/nx-plugins/bot-tools-e2e",
     "nx-plugins-python-tools": "libs/nx-plugins/python-tools",
     "nx-plugins-python-tools-e2e": "apps/nx-plugins/python-tools-e2e",
-    "shared-python-tools-core": "libs/shared/python-tools/core",
-    "shared-python-tools-development": "libs/shared/python-tools/development"
+    "shared-python-tools-core": "libs/shared/python_tools/core",
+    "shared-python-tools-development": "libs/shared/python_tools/development"
   }
 }

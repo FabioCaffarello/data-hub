@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    hostname: rabbitmq
+    networks:
+      - data-hub-network
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      - RABBITMQ_DEFAUL_USER=guest
+      - RABBITMQ_DEFAUL_PASS=guest
+      - RABBITMQ_DEFAUL_VHOST=/
+
+networks:
+  data-hub-network:
+    external: true

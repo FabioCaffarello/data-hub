@@ -3,19 +3,23 @@ name = "data-hub"
 version = "0.1.0"
 description = ""
 authors = [ "FabioCaffarello <fabio.caffarello@gmail.com>" ]
+license = "Proprietary"
 readme = "README.md"
 
   [tool.poetry.dependencies]
   python = ">=3.8,<3.10"
 
     [tool.poetry.dependencies.shared-core]
-    path = "libs/shared/python-tools/core"
+    path = "libs/shared/python_tools/core"
     develop = true
 
-    [tool.poetry.dependencies.shared-development]
-    path = "libs/shared/python-tools/development"
+    [tool.poetry.dependencies.base-spider]
+    path = "libs/ingestors/base-spider"
     develop = true
 
+[tool.poetry.group.dev.dependencies.shared-development]
+path = "libs/shared/python_tools/development"
+develop = true
 
 [tool.poetry.group.docs.dependencies]
 mkdocs = "^1.4.2"
@@ -32,5 +36,5 @@ plantuml-markdown = "^3.8.0"
 pydoc-markdown = "^4.6.4"
 
 [build-system]
-requires = [ "poetry-core" ]
+requires = [ "poetry-core==1.1.0b3" ]
 build-backend = "poetry.core.masonry.api"

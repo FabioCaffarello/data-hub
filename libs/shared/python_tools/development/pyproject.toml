@@ -7,7 +7,7 @@ exclude_lines = ['if TYPE_CHECKING:']
 show_missing = true
 
 [tool.pytest.ini_options]
-addopts = "--cov --cov-report html:'../../../../coverage/libs/shared/python-tools/development/html' --cov-report xml:'../../../../coverage/libs/shared/python-tools/development/coverage.xml' --junitxml='../../../../reports/libs/shared/python-tools/development/unittests/junit.xml' --html='../../../../reports/libs/shared/python-tools/development/unittests/html/index.html'"
+addopts = "--cov --cov-report html:'../../../../coverage/libs/shared/python_tools/development/html' --cov-report xml:'../../../../coverage/libs/shared/python_tools/development/coverage.xml' --junitxml='../../../../reports/libs/shared/python_tools/development/unittests/junit.xml' --html='../../../../reports/libs/shared/python_tools/development/unittests/html/index.html'"
 
 [tool.poetry]
 name = "shared-development"

@@ -21,6 +21,7 @@
     "@nrwl/nx-cloud": "latest",
     "@nrwl/nx-plugin": "^15.4.2",
     "@nrwl/workspace": "15.3.3",
+    "@nx-go/nx-go": "^2.7.0",
     "@nxlv/python": "^1.10.3",
     "@swc-node/register": "^1.4.2",
     "@swc/cli": "~0.1.55",

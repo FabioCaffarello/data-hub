@@ -1,0 +1,37 @@
+[tool.coverage.run]
+branch = true
+source = [ "basespider" ]
+
+[tool.coverage.report]
+exclude_lines = [ "if TYPE_CHECKING:" ]
+show_missing = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-fail-under=90 --cov-report html:'../../../coverage/libs/ingestors/base-spider/html' --cov-report xml:'../../../coverage/libs/ingestors/base-spider/coverage.xml' --junitxml='../../../reports/libs/ingestors/base-spider/unittests/junit.xml' --html='../../../reports/libs/ingestors/base-spider/unittests/html/index.html'"
+
+[tool.poetry]
+name = "base-spider"
+version = "1.0.0"
+description = "Base spider core."
+authors = [ "FabioCaffarello <fabio.caffarello@gmail.com>" ]
+license = "Proprietary"
+readme = "README.md"
+
+  [[tool.poetry.packages]]
+  include = "basespider"
+
+  [tool.poetry.dependencies]
+  python = ">=3.8,<3.10"
+  Scrapy = "^2.7.1"
+
+    [tool.poetry.dependencies.shared-core]
+    path = "../../shared/python_tools/core"
+    develop = true
+
+[tool.poetry.group.dev.dependencies.shared-development]
+path = "../../shared/python_tools/development"
+develop = true
+
+[build-system]
+requires = [ "poetry-core==1.1.0b3" ]
+build-backend = "poetry.core.masonry.api"

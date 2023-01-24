@@ -2,13 +2,13 @@
   "name": "shared-python-tools-development",
   "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
-  "sourceRoot": "libs/shared/python-tools/development/shared_development",
+  "sourceRoot": "libs/shared/python_tools/development/shared_development",
   "targets": {
     "lock": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
         "command": "poetry lock --no-update",
-        "cwd": "libs/shared/python-tools/development"
+        "cwd": "libs/shared/python_tools/development"
       }
     },
     "add": {
@@ -36,12 +36,12 @@
     "test": {
       "executor": "@nrwl/workspace:run-commands",
       "outputs": [
-        "reports/libs/shared/python-tools/development/unittests",
-        "coverage/libs/shared/python-tools/development"
+        "reports/libs/shared/python_tools/development/unittests",
+        "coverage/libs/shared/python_tools/development"
       ],
       "options": {
         "command": "poetry run pytest tests/",
-        "cwd": "libs/shared/python-tools/development"
+        "cwd": "libs/shared/python_tools/development"
       }
     }
   },

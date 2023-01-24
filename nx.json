@@ -4,12 +4,14 @@
   "affected": {
     "defaultBase": "origin/main"
   },
+  "plugins": ["@nx-go/nx-go"],
   "implicitDependencies": {
     "package.json": {
       "dependencies": "*",
       "devDependencies": "*"
     },
-    ".eslintrc.json": "*"
+    ".eslintrc.json": "*",
+    "go.mod": "*"
   },
   "tasksRunnerOptions": {
     "default": {

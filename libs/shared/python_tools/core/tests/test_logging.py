@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING
 if TYPE_CHECKING:
     import pytest
 
-from shared_core import logging
+from libs.shared.python_tools.core.shared_core import logging
 
 
 def test_setup_logging_info(capsys: "pytest.CaptureFixture"):
