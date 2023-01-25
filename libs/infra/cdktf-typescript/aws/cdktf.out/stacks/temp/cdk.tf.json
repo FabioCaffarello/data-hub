@@ -1,0 +1,66 @@
+{
+  "//": {
+    "metadata": {
+      "backend": "local",
+      "stackName": "temp",
+      "version": "0.15.1"
+    },
+    "outputs": {
+      "temp": {
+        "public_ip": "public_ip"
+      }
+    }
+  },
+  "output": {
+    "public_ip": {
+      "value": "${aws_instance.machine.public_ip}"
+    }
+  },
+  "provider": {
+    "aws": [
+      {
+        "region": "us-east-1"
+      }
+    ]
+  },
+  "resource": {
+    "aws_instance": {
+      "machine": {
+        "//": {
+          "metadata": {
+            "path": "temp/machine",
+            "uniqueId": "machine"
+          }
+        },
+        "ami": "ami-00874d747dde814fa",
+        "instance_type": "t2.micro",
+        "key_name": "${aws_key_pair.keypair.key_name}"
+      }
+    },
+    "aws_key_pair": {
+      "keypair": {
+        "//": {
+          "metadata": {
+            "path": "temp/keypair",
+            "uniqueId": "keypair"
+          }
+        },
+        "key_name": "cdktftempkey",
+        "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDiSK6c40pJUUBAY9enGpH3UOi5DbCZWe9kC2RlQz5PG7giK6JgcHaIMAwQI907dLh7C80DdJjtk5SJUmU+xgpW6gTlgACu1M2hror/uKaKx0G86T5vnoIoPRVR3v4u0FAg/Okqz2zcvWj5KegwwJW8aMYnNashgKG3lQjlhS5nw+FcKHHBtQ6IevmVtRapOJZ3h42RD3fAuzg4M0eKDxrcqGixh6oV6xmepR2j6RC/pF7NFE4Rsy8upkV9D1C2Keit3IJKxxVulOQZGa5D09uPOsr+gS6wmiKDMZA3UIrZlm/1vuiE264ZZv81vuUBJPxFZWQpQL1tY8PiMlakLXHUeMbiS1FGrcKuklBAHQqOzvMWNlOwOVibzeYEJ3ESaX5vYrDPYijV5lje+5Z1u8xvWy3dsUDisGsT2qNf2j3Ip4RIdtbzUeAds3fisi+0RnseukXuHHQb3CBCUV42VxgJlIdfIUzWaYyot7wek7SgjzsVYaRniT/bi3zYWLfixis= root@14c9399102bc\n"
+      }
+    }
+  },
+  "terraform": {
+    "backend": {
+      "local": {
+        "path": "/root/workspace/libs/infra/cdktf-typescript/aws/terraform.temp.tfstate"
+      }
+    },
+    "required_providers": {
+      "aws": {
+        "source": "aws",
+        "version": "4.51.0"
+      }
+    }
+  }
+}

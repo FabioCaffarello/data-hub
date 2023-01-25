@@ -11,7 +11,7 @@ class MyStack extends TerraformStack {
   constructor(scope: Construct, id: string) {
     super(scope, id);
 
-    const pubKey = fs.readFileSync("cdktftempkey.pub", "utf-8")
+    const pubKey = fs.readFileSync("cdktftempkey.pub", "utf-8");
 
     new AwsProvider(this, "aws", {
       region: "us-east-1",

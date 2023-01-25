@@ -2,8 +2,7 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "infra-cdktf-typescript-aws": "apps/infra/cdktf/typescript/aws",
-    "infra-cdktf-typescript-infra-cdktf-typescript-aws-e2e": "apps/infra/cdktf/typescript/infra-cdktf-typescript-aws-e2e",
+    "infra-cdktf-typescript-aws": "libs/infra/cdktf-typescript/aws",
     "ingestors-base-spider": "libs/ingestors/base-spider",
     "ingestors-services-bot-inputer": "apps/ingestors-services/bot-inputer",
     "nx-plugins-bot-tools": "libs/nx-plugins/bot-tools",

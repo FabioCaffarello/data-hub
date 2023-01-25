@@ -38,11 +38,22 @@ RUN apt-get install -y \
     gcc \
     g++ \
     sqlite3 \
-    gh
+    gh \
+    zip \
+    unzip \
+    gnupg \
+    software-properties-common
 
 RUN apt-get update && apt-get install -y protobuf-compiler
 
-# RUN curl -L -o /usr/bin/jq.exe https://github.com/stedolan/jq/releases/latest/download/jq-win64.exe
+# RUN gh extension install nektos/gh-act
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && unzip awscliv2.zip && ./aws/install
+
+COPY library-scripts/*.sh /tmp/library-scripts/
+ARG TERRAFORM_VERSION=1.2.0
+ARG TFLINT_VERSION=0.44.1
+ARG TERRAGRUNT_VERSION=0.43.0
+RUN bash /tmp/library-scripts/terraform-debian.sh "${TERRAFORM_VERSION}" "${TFLINT_VERSION}" "${TERRAGRUNT_VERSION}" "${TERRAFORM_DOCS_VERSION}"
 
 RUN git clone https://github.com/pyenv/pyenv.git /opt/pyenv
 ENV PYENV_ROOT="/opt/pyenv"
