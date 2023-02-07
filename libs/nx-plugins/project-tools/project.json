@@ -1,0 +1,61 @@
+{
+  "name": "nx-plugins-project-tools",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/nx-plugins/project-tools/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/nx-plugins/project-tools",
+        "main": "libs/nx-plugins/project-tools/src/index.ts",
+        "tsConfig": "libs/nx-plugins/project-tools/tsconfig.lib.json",
+        "assets": [
+          "libs/nx-plugins/project-tools/*.md",
+          {
+            "input": "./libs/nx-plugins/project-tools/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/nx-plugins/project-tools/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./libs/nx-plugins/project-tools",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./libs/nx-plugins/project-tools",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/nx-plugins/project-tools/**/*.ts",
+          "libs/nx-plugins/project-tools/generators.json",
+          "libs/nx-plugins/project-tools/executors.json",
+          "libs/nx-plugins/project-tools/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/nx-plugins/project-tools/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

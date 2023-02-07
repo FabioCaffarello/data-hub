@@ -12,7 +12,8 @@ import { PyprojectToml } from '@nxlv/python'
 import { parse, stringify } from '@iarna/toml';
 import { CreateProjectGeneratorSchema } from './schema';
 import { getCurrentGitUserName, getCurrentGitUserEmail } from '../../../../utils/git/commands.git'
-import spawn from 'cross-spawn';
+// import spawn from 'cross-spawn';
+import { spawnSync } from 'child_process';
 
 
 interface NormalizedSchema extends CreateProjectGeneratorSchema {
@@ -91,7 +92,7 @@ function updateRootPoetryLock(tree: Tree, normalizedOptions: NormalizedSchema) {
     console.log(`Updating root poetry.lock...`);
     const executable = 'poetry';
     const updateArgs = ['update', normalizedOptions.packageName];
-    spawn.sync(executable, updateArgs, {
+    spawnSync(executable, updateArgs, {
       shell: false,
       stdio: 'inherit',
     });
@@ -112,7 +113,7 @@ function installSharedPythonCore(normalizedOptions: NormalizedSchema) {
     'shared-python-tools-core',
     '--local',
   ];
-  spawn.sync(executable, installArgs, {
+  spawnSync(executable, installArgs, {
     shell: false,
     stdio: 'inherit',
   });
@@ -134,7 +135,7 @@ function installSharedPythonDevelopment(normalizedOptions: NormalizedSchema) {
     '--group',
     'dev',
   ];
-  spawn.sync(executable, installArgs, {
+  spawnSync(executable, installArgs, {
     shell: false,
     stdio: 'inherit',
   });

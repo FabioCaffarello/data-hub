@@ -8,6 +8,7 @@ show_missing = true
 
 [tool.pytest.ini_options]
 addopts = "--cov --cov-fail-under=90 --cov-report html:'../../../../coverage/libs/shared/python_tools/core/html' --cov-report xml:'../../../../coverage/libs/shared/python_tools/core/coverage.xml' --junitxml='../../../../reports/libs/shared/python_tools/core/unittests/junit.xml' --html='../../../../reports/libs/shared/python_tools/core/unittests/html/index.html'"
+asyncio_mode = "auto"
 
 [tool.poetry]
 name = "shared-core"

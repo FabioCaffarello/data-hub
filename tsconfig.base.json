@@ -17,6 +17,7 @@
     "paths": {
       "@data-hub/bot-tools": ["libs/nx-plugins/bot-tools/src/index.ts"],
       "@data-hub/cdktf": ["libs/infra/cdktf-typescript/aws/src/index.ts"],
+      "@data-hub/project-tools": ["libs/nx-plugins/project-tools/src/index.ts"],
       "@data-hub/python-tools": ["libs/nx-plugins/python-tools/src/index.ts"]
     }
   },

@@ -7,6 +7,7 @@
   "runServices": [
       "vscode"
   ],
+  // "postStartCommand": "bash -i library/scripts/dev-tools.sh",
   "postCreateCommand": "docker network create data-hub-network &> /dev/null",
   "shutdownAction": "stopCompose",
   "workspaceFolder": "/root/workspace/",
@@ -90,8 +91,8 @@
     "github.vscode-pull-request-github", // Github interaction
     "redhat.vscode-yaml", // Kubernetes, Drone syntax highlighting
     "bajdzis.vscode-database", // Supports connections to mysql or postgres, over SSL, socked
-    "IBM.output-colorizer" // Colorize your output/test logs
-    // "amazonwebservices.aws-toolkit-vscode"
+    "IBM.output-colorizer", // Colorize your output/test logs
+    "amazonwebservices.aws-toolkit-vscode"
   ],
   "features": {
     "docker-from-docker": {

@@ -17,6 +17,18 @@ readme = "README.md"
     path = "libs/ingestors/base-spider"
     develop = true
 
+    [tool.poetry.dependencies.mercadobitcoin-trades]
+    path = "apps/ingestors/financial/mercadobitcoin/trades"
+    develop = true
+
+    [tool.poetry.dependencies.base-parser]
+    path = "libs/ingestors/base-parser"
+    develop = true
+
+    [tool.poetry.dependencies.mercadobitcoin-tickers]
+    path = "apps/ingestors/financial/mercadobitcoin/tickers"
+    develop = true
+
 [tool.poetry.group.dev.dependencies.shared-development]
 path = "libs/shared/python_tools/development"
 develop = true
@@ -33,7 +45,7 @@ mkdocs-literate-nav = "^0.6.0"
 mkdocs-include-markdown-plugin = "^4.0.3"
 mkdocs-swagger-ui-tag = "^0.5.1"
 plantuml-markdown = "^3.8.0"
-pydoc-markdown = "^4.6.4"
+
 
 [build-system]
 requires = [ "poetry-core==1.1.0b3" ]

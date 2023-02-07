@@ -1,0 +1,37 @@
+[tool.coverage.run]
+branch = true
+source = [ "baseparser" ]
+
+[tool.coverage.report]
+exclude_lines = [ "if TYPE_CHECKING:" ]
+show_missing = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-fail-under=90 --cov-report html:'../../../coverage/libs/ingestors/base-parser/html' --cov-report xml:'../../../coverage/libs/ingestors/base-parser/coverage.xml' --junitxml='../../../reports/libs/ingestors/base-parser/unittests/junit.xml' --html='../../../reports/libs/ingestors/base-parser/unittests/html/index.html'"
+asyncio_mode = "auto"
+
+[tool.poetry]
+name = "base-parser"
+version = "1.0.0"
+description = "base parser."
+authors = [ "FabioCaffarello <fabio.caffarello@gmail.com>" ]
+license = "Proprietary"
+readme = "README.md"
+
+  [[tool.poetry.packages]]
+  include = "baseparser"
+
+  [tool.poetry.dependencies]
+  python = ">=3.8,<3.10"
+
+    [tool.poetry.dependencies.shared-core]
+    path = "../../shared/python_tools/core"
+    develop = true
+
+[tool.poetry.group.dev.dependencies.shared-development]
+path = "../../shared/python_tools/development"
+develop = true
+
+[build-system]
+requires = [ "poetry-core==1.1.0b3" ]
+build-backend = "poetry.core.masonry.api"

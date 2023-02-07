@@ -8,6 +8,7 @@ show_missing = true
 
 [tool.pytest.ini_options]
 addopts = "--cov --cov-report html:'../../../../coverage/libs/shared/python_tools/development/html' --cov-report xml:'../../../../coverage/libs/shared/python_tools/development/coverage.xml' --junitxml='../../../../reports/libs/shared/python_tools/development/unittests/junit.xml' --html='../../../../reports/libs/shared/python_tools/development/unittests/html/index.html'"
+asyncio_mode = "auto"
 
 [tool.poetry]
 name = "shared-development"

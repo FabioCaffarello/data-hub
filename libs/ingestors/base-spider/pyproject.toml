@@ -8,6 +8,7 @@ show_missing = true
 
 [tool.pytest.ini_options]
 addopts = "--cov --cov-fail-under=90 --cov-report html:'../../../coverage/libs/ingestors/base-spider/html' --cov-report xml:'../../../coverage/libs/ingestors/base-spider/coverage.xml' --junitxml='../../../reports/libs/ingestors/base-spider/unittests/junit.xml' --html='../../../reports/libs/ingestors/base-spider/unittests/html/index.html'"
+asyncio_mode = "auto"
 
 [tool.poetry]
 name = "base-spider"
@@ -18,11 +19,12 @@ license = "Proprietary"
 readme = "README.md"
 
   [[tool.poetry.packages]]
-  include = "basespider"
+  include = "ingestor"
 
   [tool.poetry.dependencies]
   python = ">=3.8,<3.10"
   Scrapy = "^2.7.1"
+  PyYAML = "5.4.1.1"
 
     [tool.poetry.dependencies.shared-core]
     path = "../../shared/python_tools/core"

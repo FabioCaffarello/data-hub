@@ -1,0 +1,59 @@
+{
+  "name": "dummie-dummie",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/dummie/dummie/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/dummie/dummie",
+        "format": ["cjs"],
+        "main": "apps/dummie/dummie/src/main.ts",
+        "tsConfig": "apps/dummie/dummie/tsconfig.app.json",
+        "assets": ["apps/dummie/dummie/src/assets"]
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/js:node",
+      "options": {
+        "buildTarget": "dummie-dummie:build"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "dummie-dummie:build:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/dummie/dummie/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/dummie/dummie/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    },
+    "docker-build": {
+      "dependsOn": ["build"],
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["docker build -f apps/dummie/dummie/Dockerfile ."]
+      }
+    }
+  },
+  "tags": []
+}

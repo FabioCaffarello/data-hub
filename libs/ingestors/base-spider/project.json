@@ -23,6 +23,14 @@
       "executor": "@nxlv/python:remove",
       "options": {}
     },
+    "build": {
+      "executor": "@nxlv/python:build",
+      "outputs": ["libs/ingestors/base-spider/dist"],
+      "options": {
+        "outputPath": "libs/ingestors/base-spider/dist",
+        "publish": false
+      }
+    },
     "install": {
       "executor": "@nxlv/python:install",
       "options": {

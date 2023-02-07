@@ -1,0 +1,137 @@
+{
+    "value": 0.0,
+    "value_blocked": 0.0,
+    "value_available": 0.0,
+    "currency": "BRL",
+    "indicators": [],
+    "incomes": [],
+    "categories": [
+        {
+            "id": 1,
+            "name": "fiat",
+            "minimum_value": 100.0,
+            "minimum_currency": "BRL",
+            "user": null,
+            "assets": [
+                {
+                    "id": "BRL",
+                    "symbol": "BRL",
+                    "category_id": 1,
+                    "type": "currency",
+                    "name": "Real",
+                    "icon_url": "https://firebasestorage.googleapis.com/v0/b/mb-app-8bc84.appspot.com/o/coins%2Fic_fiat.png?alt=media&token=8b609d9d-5c8d-4613-b50f-9c8decf6b169",
+                    "decimals": 2,
+                    "enabled": true,
+                    "details": null,
+                    "user": null,
+                    "pairs": []
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "crypto",
+            "minimum_value": 50.0,
+            "minimum_currency": "BRL",
+            "user": null,
+            "assets": [
+                {
+                    "id": "BCH",
+                    "symbol": "BCH",
+                    "category_id": 2,
+                    "type": "currency",
+                    "name": "Bitcoin Cash",
+                    "icon_url": "https://firebasestorage.googleapis.com/v0/b/mb-app-8bc84.appspot.com/o/coins%2Fic_bch.png?alt=media&token=7648995f-e52c-4498-96f0-e6debe30c84c",
+                    "decimals": 8,
+                    "enabled": true,
+                    "details": null,
+                    "user": null,
+                    "pairs": [
+                        {
+                            "id": "BRLBCH",
+                            "symbol": "BRLBCH",
+                            "base_id": "BCH",
+                            "quote_id": "BRL",
+                            "virtual": false,
+                            "open_orders": 0,
+                            "indicators": [
+                                {
+                                    "name": "change_24h_percent",
+                                    "value": 0.0233
+                                },
+                                {
+                                    "name": "last",
+                                    "value": 678.68804
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "BTC",
+                    "symbol": "BTC",
+                    "category_id": 2,
+                    "type": "currency",
+                    "name": "Bitcoin",
+                    "icon_url": "https://firebasestorage.googleapis.com/v0/b/mb-app-8bc84.appspot.com/o/coins%2Fic_btc.png?alt=media&token=ecfc910c-9119-434a-b195-3ee9867b85a5",
+                    "decimals": 8,
+                    "enabled": true,
+                    "details": null,
+                    "user": null,
+                    "pairs": [
+                        {
+                            "id": "BRLBTC",
+                            "symbol": "BRLBTC",
+                            "base_id": "BTC",
+                            "quote_id": "BRL",
+                            "virtual": false,
+                            "open_orders": 0,
+                            "indicators": [
+                                {
+                                    "name": "change_24h_percent",
+                                    "value": 0.0102
+                                },
+                                {
+                                    "name": "last",
+                                    "value": 117689.63290079
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "id": "ETH",
+                    "symbol": "ETH",
+                    "category_id": 2,
+                    "type": "currency",
+                    "name": "Ethereum",
+                    "icon_url": "https://firebasestorage.googleapis.com/v0/b/mb-app-8bc84.appspot.com/o/coins%2Fic_eth.png?alt=media&token=d4dd7709-2785-46d3-b762-cbcb665ab903",
+                    "decimals": 8,
+                    "enabled": true,
+                    "details": null,
+                    "user": null,
+                    "pairs": [
+                        {
+                            "id": "BRLETH",
+                            "symbol": "BRLETH",
+                            "base_id": "ETH",
+                            "quote_id": "BRL",
+                            "virtual": false,
+                            "open_orders": 0,
+                            "indicators": [
+                                {
+                                    "name": "change_24h_percent",
+                                    "value": 0.0268
+                                },
+                                {
+                                    "name": "last",
+                                    "value": 8194.76
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

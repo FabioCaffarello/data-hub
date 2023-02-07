@@ -1,20 +1,40 @@
 version: '3'
-
 services:
-  rabbitmq:
-    image: rabbitmq:3-management
-    container_name: rabbitmq
-    hostname: rabbitmq
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./data:/data/db
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: guest
+    #   MONGO_INITDB_ROOT_PASSWORD: guest
     networks:
       - data-hub-network
+
+  # mongodb-express:
+  #   image: mongo-express
+  #   ports:
+  #     - "8081:8081"
+  #   # environment:
+  #   #   ME_CONFIG_MONGODB_ADMINUSERNAME: guest
+  #   #   ME_CONFIG_MONGODB_ADMINPASSWORD: guest
+  #   networks:
+  #     - data-hub-network
+
+  rabbitmq:
+    image: rabbitmq:3-management
     ports:
       - "5672:5672"
       - "15672:15672"
     environment:
-      - RABBITMQ_DEFAUL_USER=guest
-      - RABBITMQ_DEFAUL_PASS=guest
-      - RABBITMQ_DEFAUL_VHOST=/
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+      RABBITMQ_DEFAULT_VHOST: /
+    networks:
+      - data-hub-network
 
 networks:
   data-hub-network:
     external: true
+    driver: bridge

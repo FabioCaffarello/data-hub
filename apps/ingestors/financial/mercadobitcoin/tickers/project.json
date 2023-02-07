@@ -1,0 +1,76 @@
+{
+  "name": "ingestors-financial-mercadobitcoin-tickers",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/ingestors/financial/mercadobitcoin/tickers/bot",
+  "targets": {
+    "lock": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "poetry lock --no-update",
+        "cwd": "apps/ingestors/financial/mercadobitcoin/tickers"
+      }
+    },
+    "add": {
+      "executor": "@nxlv/python:add",
+      "options": {}
+    },
+    "update": {
+      "executor": "@nxlv/python:update",
+      "options": {}
+    },
+    "remove": {
+      "executor": "@nxlv/python:remove",
+      "options": {}
+    },
+    "build": {
+      "executor": "@nxlv/python:build",
+      "outputs": ["apps/ingestors/financial/mercadobitcoin/tickers/dist"],
+      "options": {
+        "outputPath": "apps/ingestors/financial/mercadobitcoin/tickers/dist",
+        "publish": false
+      }
+    },
+    "build-for-test": {
+      "executor": "@nxlv/python:build",
+      "outputs": ["apps/ingestors/financial/mercadobitcoin/tickers/dist-test"],
+      "options": {
+        "outputPath": "apps/ingestors/financial/mercadobitcoin/tickers/dist-test",
+        "publish": false
+      }
+    },
+    "install": {
+      "executor": "@nxlv/python:install",
+      "options": {
+        "silent": false,
+        "args": "",
+        "cacheDir": ".cache/pypoetry",
+        "verbose": false,
+        "debug": false
+      }
+    },
+    "crawler": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "scrapy crawl mercadobitcoin-tickers -a input_msg=TestInputMsg",
+        "cwd": "apps/ingestors/financial/mercadobitcoin/tickers"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "poetry run pytest bot/tests/bot/",
+        "cwd": "apps/ingestors/financial/mercadobitcoin/tickers"
+      }
+    },
+    "protoc": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "poetry run protoc -I=. --python_out=. proto/spider.proto",
+        "cwd": "apps/ingestors/financial/mercadobitcoin/tickers/bot/spiders"
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["ingestors-base-spider", "ingestors-base-parser"]
+}
