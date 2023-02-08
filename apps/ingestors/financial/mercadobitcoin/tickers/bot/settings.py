@@ -67,10 +67,10 @@ DEFAULT_REQUEST_HEADERS = {
 RABBITMQ_URI = "amqp://guest:guest@rabbitmq:5672/"
 RABBITMQ_QUEUE='items-proto'
 MONGO_URI = "mongodb://mongodb:27017/test_database"
-ITEM_PIPELINES = {
-  'bot.pipelines.RabbitMQPipeline': 300,
-  'bot.pipelines.MongoPipeline': 600,
-}
+# ITEM_PIPELINES = {
+#   'bot.pipelines.RabbitMQPipeline': 300,
+#   'bot.pipelines.MongoPipeline': 600,
+# }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://docs.scrapy.org/en/latest/topics/autothrottle.html

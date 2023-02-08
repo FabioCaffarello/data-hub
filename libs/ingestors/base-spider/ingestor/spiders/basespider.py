@@ -7,12 +7,10 @@ import scrapy
 from ingestor import settings
 
 
-
 class BaseSpider(scrapy.Spider):
     def __init__(self, input_msg, *args, **kwargs):
         self.logger.info(f"Creating spider to crawl: {input_msg}")
         super(BaseSpider, self).__init__(*args, **kwargs)
-        # self.__debug = debug
         self._input_data = input_msg
         requests = self.start_requests()
         self.__start_requests = []

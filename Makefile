@@ -25,3 +25,4 @@ nx-create-plugin-executor:
 # npx nx g @nrwl/nx-plugin:executor fix-docker-config --project=
 
 # npx nx run ingestors-financial-mercadobitcoin-tickers:crawler
+# npx nx run ingestors-financial-mercadobitcoin-tickers:build-for-test --with-deps

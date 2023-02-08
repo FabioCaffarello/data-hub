@@ -2,8 +2,6 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "dummie-dummie": "apps/dummie/dummie",
-    "dummie-dummie-dummie-e2e": "apps/dummie/dummie-dummie-e2e",
     "infra-cdktf-typescript-aws": "libs/infra/cdktf-typescript/aws",
     "ingestors-base-parser": "libs/ingestors/base-parser",
     "ingestors-base-spider": "libs/ingestors/base-spider",
