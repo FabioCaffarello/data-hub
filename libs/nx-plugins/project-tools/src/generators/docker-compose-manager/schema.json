@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "DockerComposeManager",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "groupServices": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Select the group services to include in your compose",
+      "x-prompt": {
+        "type": "select",
+        "message": "Select the group services to include in your compose",
+        "items": [
+          { "value": "bot", "label": "Bot" },
+          { "value": "back-end", "label": "Back-end" },
+          { "value": "front-end", "label": "front-end" }
+        ],
+        "multiple": true
+      }
+    },
+    "coreBusiness": {
+      "type": "string",
+      "description": "coreBusiness"
+    },
+    "subjectBusiness": {
+      "type": "string",
+      "description": "subjectBusiness"
+    },
+    "ingestors": {
+      "type": "string",
+      "description": "list the bots name"
+    }
+  },
+  "required": ["groupServices"]
+}

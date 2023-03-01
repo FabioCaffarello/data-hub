@@ -1,8 +1,9 @@
 import { spawnSyncMock } from '../../../../utils/mocks/cross-spawn.mock';
 import { readProjectConfiguration, Tree } from '@nrwl/devkit';
-import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
+import { createTreeWithEmptyWorkspace,  } from '@nrwl/devkit/testing';
 
 import generator from './generator';
+import { installSharedPythonDevelopmentTest } from './generator'
 import { CreateProjectGeneratorSchema } from './schema';
 import dedent from "dedent";
 
@@ -80,17 +81,27 @@ describe('create-project generator', () => {
     name = "unit test"
       [tool.poetry.dependencies]
       python = ">=3.8,<3.10"
+        [tool.poetry.dependencies.unittest-test-pkg-name]
+        path = "libs/test"
+        develop = true
     [build-system]
     requires = [ "poetry-core==1.1.0b3" ]
     build-backend = "poetry.core.masonry.api"
     `)
+    const optionsLibrary: CreateProjectGeneratorSchema = {
+      name: 'test',
+      type: 'library',
+      moduleName: null,
+      packageName: 'unittest-test-pkg-name',
+    };
 
-    const callbackTask = await generator(appTree, { ...options, type: 'library' });
+    const callbackTask = await generator(appTree, { ...optionsLibrary });
     callbackTask();
     const config = readProjectConfiguration(appTree, 'test');
     expect(config).toMatchSnapshot();
 
     expect(appTree.read('pyproject.toml', 'utf8')).toMatchSnapshot()
+    console.log('poetry', ['update', options.packageName])
     expect(spawnSyncMock).toHaveBeenCalledWith('poetry', ['update', options.packageName], {
       shell: false,
       stdio: 'inherit',
@@ -161,3 +172,45 @@ function assertGenerateFiles(
     appTree.read(`${projectDirectory}/${moduleName}/__init__.py`).toString()
   ).toMatchSnapshot();
 }
+
+describe('installSharedPythonDevelopmentTest', () => {
+  const projectName = 'test-project';
+  let normalizedSchema: NormalizedSchema;
+
+  afterEach(() => {
+    const project = await createTestUILibProject('test-project');
+    normalizedSchema = {
+      ...project.workspace.projects['test-project'],
+      projectRoot: project.root,
+      projectName: 'test-project',
+      projectDirectory: 'test-project',
+      parsedTags: {},
+      moduleName: 'testProject',
+      importPath: '@proj/test-project',
+    };
+  });
+
+  it('should call spawnSync with the correct arguments', () => {
+    const spawnSyncMock = jest.fn();
+    jest.mock('child_process', () => ({
+      spawnSync: spawnSyncMock,
+    }));
+
+    installSharedPythonDevelopmentTest(normalizedSchema);
+
+    expect(spawnSyncMock).toHaveBeenCalledWith(
+      'npx',
+      [
+        'nx',
+        'run',
+        `${projectName}:add`,
+        '--name',
+        'shared-python-tools-development',
+        '--local',
+        '--group',
+        'dev',
+      ],
+      { shell: false, stdio: 'inherit' },
+    );
+  });
+});

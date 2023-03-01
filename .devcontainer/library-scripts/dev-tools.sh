@@ -2,7 +2,8 @@
 export $(cat .env)
 
 npm install
-npm install -g npm@9.3.1 cdktf-cli
+npm install -g npm@9.5.0 cdktf-cli
+
 poetry install
 
 gh extension install nektos/gh-act

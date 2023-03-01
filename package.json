@@ -13,6 +13,7 @@
   },
   "private": true,
   "devDependencies": {
+    "@angular-devkit/schematics": "^15.2.0",
     "@cdktf/provider-aws": "12.0.1",
     "@nrwl/devkit": "15.4.5",
     "@nrwl/esbuild": "15.6.1",

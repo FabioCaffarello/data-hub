@@ -1,0 +1,19 @@
+name: Monorepo CI
+
+on:
+  pull_request:
+    types:
+      - assigned
+      - opened
+      - synchronize
+      - reopened
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - run: source ./.venv/bin/activate
+      - run: npx nx test

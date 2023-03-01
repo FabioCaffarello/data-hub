@@ -1,20 +1,19 @@
 import { createTreeWithEmptyWorkspace } from '@nrwl/devkit/testing';
-import { Tree, readProjectConfiguration } from '@nrwl/devkit';
-
-import generator from './generator';
+import { assertGenerateFiles } from './generator';
 import { FixDockerConfigGeneratorSchema } from './schema';
+import generator from './generator';
 
 describe('fix-docker-config generator', () => {
-  let appTree: Tree;
-  const options: FixDockerConfigGeneratorSchema = { name: 'test' };
+  let appTree;
+  const options: FixDockerConfigGeneratorSchema = {};
 
   beforeEach(() => {
     appTree = createTreeWithEmptyWorkspace();
   });
 
-  it('should run successfully', async () => {
+  it('should remove the credsStore field from the .docker/config.json file', async () => {
+    appTree.write('.docker/config.json', '{"credsStore":"someCredsStore"}');
     await generator(appTree, options);
-    const config = readProjectConfiguration(appTree, 'test');
-    expect(config).toBeDefined();
+    assertGenerateFiles(appTree);
   });
 });

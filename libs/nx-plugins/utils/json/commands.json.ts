@@ -8,3 +8,7 @@ export function readJson(filePath: string) {
 export function updateJson(filePath: string, json: any) {
   fs.writeFileSync(filePath, JSON.stringify(json, null, 2));
 }
+
+export function getOwnKeys(obj) {
+  return Reflect.ownKeys(obj)
+}
