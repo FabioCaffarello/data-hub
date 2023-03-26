@@ -120,7 +120,7 @@ function addServices(tree: Tree, options: NormalizedSchema) {
         const botServiceObject = {
           build: {
             context: element.botPath,
-            dockerfile: path.join(element.botPath, 'Dockerfile')
+            dockerfile: 'Dockerfile' // path.join(element.botPath, 'Dockerfile')
           },
           networks: [networkName]
         };

@@ -1,5 +1,8 @@
 go 1.19
 
 use (
-    apps/ingestors-services/bot-inputer
+	apps/ingestors-services/bot-inputer
+	apps/ingestors-services/ingestors-handler
+	libs/sd-golang/utils-mongo
+	libs/sd-golang/utils-rabbitmq
 )

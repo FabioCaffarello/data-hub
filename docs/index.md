@@ -7,7 +7,12 @@ There are 2 ways to develop in this workspace:
 Install the following softwares
 
 - [node.js 16.x](https://nodejs.org/en/download/)
+- [golang](https://golang.google.cn/)
+- [docker](https://www.docker.com/)
+- [docker-compose](https://www.docker.com/)
+- [Terraform](https://www.terraform.io/)
 - [poetry](https://pypi.org/project/poetry/1.2.0b2/)
+
 
 ```shell
 pip install poetry==1.2.0b3
@@ -15,9 +20,6 @@ pip install poetry==1.2.0b3
 
 > Installation using [pipx](https://pypa.github.io/pipx/installation/) is strongly recommended.
 
-- [Go]()
-- [Terraform]()
-- []()
 
 ## Using Docker Dev Container
 

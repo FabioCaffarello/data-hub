@@ -2,7 +2,9 @@
 #
 # See documentation in:
 # https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-
+import pika
+from scrapy import Request
+from scrapy.exceptions import NotConfigured
 from scrapy import signals
 
 # useful for handling different item types with a single interface
@@ -101,3 +103,37 @@ class BotDownloaderMiddleware:
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
+
+
+# class RabbitMQMiddleware:
+#     def __init__(self, connection_params, queue_name):
+#         self.connection_params = connection_params
+#         self.queue_name = queue_name
+#         self.connection = None
+#         self.channel = None
+
+#     @classmethod
+#     def from_crawler(cls, crawler):
+#         connection_params = pika.URLParameters(crawler.settings.get('RABBITMQ_URI'))
+#         queue_name = crawler.settings.get('RABBITMQ_QUEUE_INPUT')
+#         if not connection_params.host or not queue_name:
+#             raise NotConfigured('RabbitMQMiddleware is not properly configured')
+#         return cls(connection_params, queue_name)
+
+#     def start_consuming(self):
+#         self.connection = pika.BlockingConnection(self.connection_params)
+#         self.channel = self.connection.channel()
+#         self.channel.queue_declare(queue=self.queue_name)
+#         self.channel.basic_consume(queue=self.queue_name, on_message_callback=self.handle_delivery)
+#         self.channel.start_consuming()
+
+#     def handle_delivery(self, channel, method, properties, body):
+#         url = body.decode()
+#         request = Request(url=url)
+#         self.spider.crawler.engine.schedule(request, self.spider)
+
+#     def process_spider_input(self, response, request, spider):
+#         self.spider = spider
+#         if not hasattr(self, 'connection'):
+#             self.start_consuming()
+#         return None

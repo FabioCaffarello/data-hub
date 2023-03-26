@@ -30,3 +30,15 @@ class Spider(basespider.BaseSpider):
             self.logger.info(f"Receive ticker {_data}")
             bot_items.add_fields(_data)
             yield bot_items.load_item()
+
+    # @classmethod
+    # def from_crawler(cls, crawler, *args, **kwargs):
+    #     spider = super().from_crawler(crawler, *args, **kwargs)
+    #     rabbitmq_middleware = crawler.settings.get('RABBITMQ_MIDDLEWARE_ENABLED')
+    #     if rabbitmq_middleware:
+    #         spider.rabbitmq_middleware = rabbitmq_middleware(crawler)
+    #     return spider
+
+    # def spider_closed(self, spider):
+    #     if self.rabbitmq_middleware:
+    #         self.rabbitmq_middleware.connection.close()

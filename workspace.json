@@ -8,12 +8,15 @@
     "ingestors-financial-mercadobitcoin-tickers": "apps/ingestors/financial/mercadobitcoin/tickers",
     "ingestors-financial-mercadobitcoin-trades": "apps/ingestors/financial/mercadobitcoin/trades",
     "ingestors-services-bot-inputer": "apps/ingestors-services/bot-inputer",
+    "ingestors-services-ingestors-handler": "apps/ingestors-services/ingestors-handler",
     "nx-plugins-bot-tools": "libs/nx-plugins/bot-tools",
     "nx-plugins-bot-tools-e2e": "apps/nx-plugins/bot-tools-e2e",
     "nx-plugins-project-tools": "libs/nx-plugins/project-tools",
     "nx-plugins-project-tools-e2e": "apps/nx-plugins/project-tools-e2e",
     "nx-plugins-python-tools": "libs/nx-plugins/python-tools",
     "nx-plugins-python-tools-e2e": "apps/nx-plugins/python-tools-e2e",
+    "sd-golang-utils-mongo": "libs/sd-golang/utils-mongo",
+    "sd-golang-utils-rabbitmq": "libs/sd-golang/utils-rabbitmq",
     "shared-python-tools-core": "libs/shared/python_tools/core",
     "shared-python-tools-development": "libs/shared/python_tools/development"
   }

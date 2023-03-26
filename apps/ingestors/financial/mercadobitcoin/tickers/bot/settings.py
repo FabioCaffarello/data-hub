@@ -44,9 +44,10 @@ DEFAULT_REQUEST_HEADERS = {
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
-#    'ingestor.middlewares.IngestorSpiderMiddleware': 543,
-#}
+# SPIDER_MIDDLEWARES = {
+#     'ingestor.middlewares.RabbitMQMiddleware': 1000
+# #    'ingestor.middlewares.IngestorSpiderMiddleware': 543,
+# }
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
@@ -65,7 +66,8 @@ DEFAULT_REQUEST_HEADERS = {
 
 # MONGO_URI = "mongodb://admin:1234@mongodb:27017/test_database"
 RABBITMQ_URI = "amqp://guest:guest@rabbitmq:5672/"
-RABBITMQ_QUEUE='items-proto'
+RABBITMQ_QUEUE_INPUT = "bot.input"
+RABBITMQ_QUEUE_OUTPUT = "bot.output.items-proto"
 MONGO_URI = "mongodb://mongodb:27017/test_database"
 # ITEM_PIPELINES = {
 #   'bot.pipelines.RabbitMQPipeline': 300,

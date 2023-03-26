@@ -16,3 +16,4 @@ COPY . .
 
 # Define the entrypoint to run the application
 ENTRYPOINT ["scrapy", "crawl", "mercadobitcoin-tickers", "-a", "input_msg=TestInputMsg"]
+# ENTRYPOINT ["python3", "./bot/run.py"]
