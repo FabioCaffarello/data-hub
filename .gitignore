@@ -7,6 +7,8 @@ temp/*
 cdktftempkey
 cdktftempkey.pub
 
+libs/infra/cdktf-typescript/aws/cdktf.out/*
+
 # mkdocs artefacts
 site/
 

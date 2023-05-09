@@ -2,8 +2,9 @@
 # export $(cat .env)
 
 npm install
-npm install -g npm@9.5.0 cdktf-cli @backstage/cli yarn
-npm install --save @backstage/plugin-catalog-backend @backstage/plugin-catalog
+npm install -g npm@9.6.4 cdktf-cli #@backstage/cli yarn
+# npm install --save @backstage/plugin-catalog-backend @backstage/plugin-catalog
+
 poetry install
 
 export CGO_ENABLED=1

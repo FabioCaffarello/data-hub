@@ -25,7 +25,7 @@
     },
     "build": {
       "executor": "@nxlv/python:build",
-      "outputs": ["apps/ingestors/financial/mercadobitcoin/tickers/dist"],
+      "outputs": ["{projectRoot}/dist"],
       "options": {
         "outputPath": "apps/ingestors/financial/mercadobitcoin/tickers/dist",
         "publish": false
@@ -33,7 +33,7 @@
     },
     "build-for-test": {
       "executor": "@nxlv/python:build",
-      "outputs": ["apps/ingestors/financial/mercadobitcoin/tickers/dist-test"],
+      "outputs": ["{projectRoot}/dist-test"],
       "options": {
         "outputPath": "apps/ingestors/financial/mercadobitcoin/tickers/dist-test",
         "publish": false

@@ -7,7 +7,7 @@
   "runServices": [
       "vscode"
   ],
-  "postStartCommand": "bash -i library/scripts/dev-tools.sh",
+  // "postStartCommand": "bash -i library/scripts/dev-tools.sh",
   "postCreateCommand": "docker network create data-hub-network &> /dev/null",
   "shutdownAction": "stopCompose",
   "workspaceFolder": "/root/workspace/",

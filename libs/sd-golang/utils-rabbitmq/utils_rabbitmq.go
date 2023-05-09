@@ -56,10 +56,10 @@ func (h *RabbitMQHandler) Publish(queueName string, message []byte) error {
 	}
 
 	err := h.ch.Publish(
-		"",       // exchange
-		q.Name,   // routing key
-		false,    // mandatory
-		false,    // immediate
+		"",     // exchange
+		q.Name, // routing key
+		false,  // mandatory
+		false,  // immediate
 		amqp.Publishing{
 			ContentType: "text/plain",
 			Body:        message,
@@ -82,7 +82,7 @@ func (h *RabbitMQHandler) Consume(queueName string) (<-chan []byte, error) {
 	msgs, err := h.ch.Consume(
 		q.Name, // queue
 		"",     // consumer
-		true,   // auto-ack
+		false,  // auto-ack
 		false,  // exclusive
 		false,  // no-local
 		false,  // no-wait

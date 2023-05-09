@@ -36,8 +36,8 @@
     "test": {
       "executor": "@nrwl/workspace:run-commands",
       "outputs": [
-        "reports/libs/shared/python_tools/development/unittests",
-        "coverage/libs/shared/python_tools/development"
+        "{workspaceRoot}/reports/libs/shared/python_tools/development/unittests",
+        "{workspaceRoot}/coverage/libs/shared/python_tools/development"
       ],
       "options": {
         "command": "poetry run pytest tests/",

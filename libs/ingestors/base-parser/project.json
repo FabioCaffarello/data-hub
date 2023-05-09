@@ -25,7 +25,7 @@
     },
     "build": {
       "executor": "@nxlv/python:build",
-      "outputs": ["libs/ingestors/base-parser/dist"],
+      "outputs": ["{projectRoot}/dist"],
       "options": {
         "outputPath": "libs/ingestors/base-parser/dist",
         "publish": false
