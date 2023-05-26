@@ -1,0 +1,34 @@
+{
+  "name": "infra-cdktf-typescript-aws",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/infra/cdktf-typescript/aws/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/infra/cdktf-typescript/aws",
+        "main": "libs/infra/cdktf-typescript/aws/src/index.ts",
+        "tsConfig": "libs/infra/cdktf-typescript/aws/tsconfig.lib.json",
+        "assets": ["libs/infra/cdktf-typescript/aws/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/infra/cdktf-typescript/aws/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/infra/cdktf-typescript/aws/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

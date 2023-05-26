@@ -1,0 +1,11 @@
+go 1.19
+
+use (
+	apps/ingestors-services/bot-inputer
+	apps/ingestors-services/events-manager
+	apps/ingestors-services/ingestors-handler
+	libs/sd-golang/events
+	libs/sd-golang/utils-golang
+	libs/sd-golang/utils-mongo
+	libs/sd-golang/utils-rabbitmq
+)

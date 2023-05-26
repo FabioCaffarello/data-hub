@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "nx-plugins-project-tools",
+  "version": "0.0.1",
+  "generators": {
+    "fix-docker-config": {
+      "factory": "./src/generators/fix-docker-config/generator",
+      "schema": "./src/generators/fix-docker-config/schema.json",
+      "description": "fix-docker-config generator"
+    },
+    "docker-compose-manager": {
+      "factory": "./src/generators/docker-compose-manager/generator",
+      "schema": "./src/generators/docker-compose-manager/schema.json",
+      "description": "docker-compose-manager generator"
+    }
+  }
+}

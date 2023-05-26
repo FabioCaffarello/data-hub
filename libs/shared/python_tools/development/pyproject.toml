@@ -1,0 +1,45 @@
+[tool.coverage.run]
+branch = true
+source = [ "shared_development" ]
+
+[tool.coverage.report]
+exclude_lines = ['if TYPE_CHECKING:']
+show_missing = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-report html:'../../../../coverage/libs/shared/python_tools/development/html' --cov-report xml:'../../../../coverage/libs/shared/python_tools/development/coverage.xml' --junitxml='../../../../reports/libs/shared/python_tools/development/unittests/junit.xml' --html='../../../../reports/libs/shared/python_tools/development/unittests/html/index.html'"
+asyncio_mode = "auto"
+
+[tool.poetry]
+name = "shared-development"
+version = "1.0.0"
+description = "Python Shared Unit Test and Development."
+authors = [ ]
+license = 'Proprietary'
+readme = 'README.md'
+
+  [[tool.poetry.packages]]
+  include = "shared_development"
+
+  [tool.poetry.dependencies]
+  python = ">=3.8,<3.10"
+  flake8 = "4.0.1"
+  flake8-isort = "4.1.1"
+  flake8-print = "5.0.0"
+  flake8-pytest-style = "1.6.0"
+  flake8-docstrings = "1.6.0"
+  flake8-type-checking = "2.0.6"
+  autopep8 = "1.5.7"
+  boto3 = "^1.19.6"
+  pytest = "7.1.2"
+  pytest-env = "0.6.2"
+  pytest-cov = "3.0.0"
+  pytest-html = "3.1.1"
+  pytest-sugar = "0.9.5"
+  pytest-asyncio = "0.19.0"
+  pyfakefs = "4.6.2"
+  freezegun = "1.2.1"
+
+[build-system]
+requires = ["poetry-core==1.1.0b3"]
+build-backend = "poetry.core.masonry.api"

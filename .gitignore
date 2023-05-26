@@ -1,5 +1,16 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+temp/*
+
+# dotenv
+.env
+cdktftempkey
+cdktftempkey.pub
+
+libs/infra/cdktf-typescript/aws/cdktf.out/*
+
+# mkdocs artefacts
+site/
 
 # compiled output
 dist

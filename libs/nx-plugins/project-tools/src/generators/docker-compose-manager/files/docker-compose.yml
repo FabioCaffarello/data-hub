@@ -1,0 +1,7 @@
+version: '3'
+services:
+
+networks:
+  data-hub-network:
+    external: true
+    driver: bridge

@@ -15,8 +15,33 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@data-hub/bot-tools": ["libs/nx-plugins/bot-tools/src/index.ts"],
-      "@data-hub/python-tools": ["libs/nx-plugins/python-tools/src/index.ts"]
+      "@data-hub/bot-tools": [
+        "libs/nx-plugins/bot-tools/src/index.ts"
+      ],
+      "@data-hub/project-tools": [
+        "libs/nx-plugins/project-tools/src/index.ts"
+      ],
+      "@data-hub/python-tools": [
+        "libs/nx-plugins/python-tools/src/index.ts"
+      ],
+      "@data-hub/cdktf": [
+        "libs/infra/cdktf-typescript/aws/src/index.ts"
+      ],
+      "@data-hub/sd-nest/data-access-dtos": [
+        "libs/sd-nest/data-access-dtos/src/index.ts"
+      ],
+      "@data-hub/sd-nest/data-access/ingestor-config": [
+        "libs/sd-nest/data-access/ingestor-config/src/index.ts"
+      ],
+      "@data-hub/sd-nest/feature-config": [
+        "libs/sd-nest/feature-config/src/index.ts"
+      ],
+      "@data-hub/sd-nest/features/ingestor-config": [
+        "libs/sd-nest/features/ingestor-config/src/index.ts"
+      ],
+      "@data-hub/sd-nest/utils-config": [
+        "libs/sd-nest/utils-config/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]

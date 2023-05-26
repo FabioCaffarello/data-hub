@@ -1,0 +1,50 @@
+[tool.coverage.run]
+branch = true
+source = [ "bot.spiders" ]
+omit = ["bot/spiders/static.py", "bot/spiders/spider.py", "bot/spiders/__init__.py"]
+
+[tool.coverage.report]
+exclude_lines = [ "if TYPE_CHECKING:" ]
+show_missing = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-fail-under=90 --cov-report html:'../../../../../coverage/apps/ingestors/financial/mercadobitcoin/tickers/html' --cov-report xml:'../../../../../coverage/apps/ingestors/financial/mercadobitcoin/tickers/coverage.xml' --junitxml='../../../../../reports/apps/ingestors/financial/mercadobitcoin/tickers/unittests/junit.xml' --html='../../../../../reports/apps/ingestors/financial/mercadobitcoin/tickers/unittests/html/index.html'"
+asyncio_mode = "auto"
+
+[tool.poetry]
+name = "mercadobitcoin-tickers"
+version = "1.0.0"
+description = "mercadobitcoin tickers."
+authors = [ "FabioCaffarello <fabio.caffarello@gmail.com>" ]
+license = "Proprietary"
+readme = "README.md"
+
+  [[tool.poetry.packages]]
+  include = "bot"
+
+  [tool.poetry.dependencies]
+  python = ">=3.8,<3.10"
+  Scrapy = "^2.7.1"
+  beanie = "^1.17.0"
+  protobuf = "^4.21.12"
+  pika = "^1.3.1"
+
+    [tool.poetry.dependencies.shared-core]
+    path = "../../../../../libs/shared/python_tools/core"
+    develop = true
+
+    [tool.poetry.dependencies.base-parser]
+    path = "../../../../../libs/ingestors/base-parser"
+    develop = true
+
+    [tool.poetry.dependencies.base-spider]
+    path = "../../../../../libs/ingestors/base-spider"
+    develop = true
+
+[tool.poetry.group.dev.dependencies.shared-development]
+path = "../../../../../libs/shared/python_tools/development"
+develop = true
+
+[build-system]
+requires = [ "poetry-core==1.1.0b3" ]
+build-backend = "poetry.core.masonry.api"

@@ -1,13 +1,76 @@
 {
   "name": "Ubuntu",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": ".."
-  },
-  "workspaceMount": "source=${localWorkspaceFolder},target=/root/workspace/,type=bind",
+  "dockerComposeFile": [
+      "docker-compose.yml"
+  ],
+  "service": "vscode",
+  "runServices": [
+      "vscode"
+  ],
+  // "postStartCommand": "bash -i library/scripts/dev-tools.sh",
+  "postCreateCommand": "docker network create data-hub-network &> /dev/null",
+  "shutdownAction": "stopCompose",
   "workspaceFolder": "/root/workspace/",
   "settings": {
-    "python.defaultInterpreterPath": "/root/workspace/.venv/bin/python"
+    "python.defaultInterpreterPath": "/root/workspace/.venv/bin/python",
+    "files.eol": "\n",
+        "remote.extensionKind": {
+            "ms-azuretools.vscode-docker": "workspace"
+        },
+        "go.useLanguageServer": true,
+        "[go]": {
+            "editor.codeActionsOnSave": {
+                "source.organizeImports": true
+            }
+        },
+        "[go.mod]": {
+            "editor.codeActionsOnSave": {
+                "source.organizeImports": true
+            }
+        },
+        "gopls": {
+            "build.buildFlags": [
+                "-tags",
+                ""
+            ],
+            "usePlaceholders": false,
+            "staticcheck": true
+        },
+        "go.lintTool": "golangci-lint",
+        "go.lintOnSave": "package",
+        "editor.formatOnSave": true,
+        "go.toolsEnvVars": {
+            "GO111MODULE": "on",
+            "CGO_ENABLED": "1",
+            "GOOS": "linux",
+            "GOARCH": "amd64"
+        },
+        "go.testEnvVars": {
+            "": ""
+        },
+        "go.testFlags": [
+            "-v",
+            "-race"
+        ],
+        "go.testTimeout": "10s",
+        "go.coverOnSingleTest": true,
+        "go.coverOnSingleTestFile": true,
+        "go.coverOnTestPackage": true,
+        "todo-tree.customHighlight": {
+          "TODO": {
+            "icon": "check",
+            "type": "line",
+            "iconColour": "yellow",
+            "foreground": "red",
+            "background": "yellow"
+          },
+          "FIXME": {
+            "icon": "beaker",
+            "iconColour": "red",
+            "foreground": "white",
+            "background": "red"
+          }
+        }
   },
   "extensions": [
     "editorconfig.editorconfig",
@@ -15,7 +78,27 @@
     "ms-python.python",
     "ms-vscode-remote.remote-containers",
     "nrwl.angular-console",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+    "golang.go",
+    "eamodio.gitlens",
+    "davidanson.vscode-markdownlint",
+    "ms-azuretools.vscode-docker",
+    "shardulm94.trailing-spaces",
+    "Gruntfuggly.todo-tree",
+    "bierner.emojisense",
+    "stkb.rewrap",
+    "vscode-icons-team.vscode-icons",
+    "github.vscode-pull-request-github",
+    "redhat.vscode-yaml",
+    "bajdzis.vscode-database",
+    "IBM.output-colorizer",
+    "amazonwebservices.aws-toolkit-vscode"
   ],
-  "remoteUser": "root"
+  "features": {
+    "docker-from-docker": {
+      "version": "latest",
+      "moby": true
+  },
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+  }
 }

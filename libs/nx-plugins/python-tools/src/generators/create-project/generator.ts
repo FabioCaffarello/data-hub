@@ -12,8 +12,8 @@ import { PyprojectToml } from '@nxlv/python'
 import { parse, stringify } from '@iarna/toml';
 import { CreateProjectGeneratorSchema } from './schema';
 import { getCurrentGitUserName, getCurrentGitUserEmail } from '../../../../utils/git/commands.git'
-import spawn from 'cross-spawn';
-
+import { spawnSync } from 'child_process';
+import { spawnSyncMock } from '../../../../utils/mocks/cross-spawn.mock';
 
 interface NormalizedSchema extends CreateProjectGeneratorSchema {
   projectName: string;
@@ -91,7 +91,9 @@ function updateRootPoetryLock(tree: Tree, normalizedOptions: NormalizedSchema) {
     console.log(`Updating root poetry.lock...`);
     const executable = 'poetry';
     const updateArgs = ['update', normalizedOptions.packageName];
-    spawn.sync(executable, updateArgs, {
+    console.log(`executable: ${executable}`);
+    console.log(`installArgs: ${updateArgs}`);
+    spawnSync(executable, updateArgs, {
       shell: false,
       stdio: 'inherit',
     });
@@ -112,11 +114,41 @@ function installSharedPythonCore(normalizedOptions: NormalizedSchema) {
     'shared-python-tools-core',
     '--local',
   ];
-  spawn.sync(executable, installArgs, {
+  console.log(`executable: ${executable}`);
+  console.log(`installArgs: ${installArgs}`);
+  spawnSync(executable, installArgs, {
     shell: false,
     stdio: 'inherit',
   });
   return
+}
+
+export function installSharedPythonDevelopmentTest(normalizedOptions: NormalizedSchema) {
+  console.log(
+    `Add shared python development to the project ${normalizedOptions.projectName}`
+  );
+  spawnSyncMock.mockReturnValue({
+    status: 0,
+    error: null,
+    stdout: '',
+    stderr: '',
+  });
+  const executable = 'npx';
+  const installArgs = [
+    'nx',
+    'run',
+    `${normalizedOptions.projectName}:add`,
+    '--name',
+    'shared-python-tools-development',
+    '--local',
+    '--group',
+    'dev',
+  ];
+  spawnSync(executable, installArgs, {
+    shell: false,
+    stdio: 'inherit',
+  });
+  return;
 }
 
 function installSharedPythonDevelopment(normalizedOptions: NormalizedSchema) {
@@ -134,7 +166,9 @@ function installSharedPythonDevelopment(normalizedOptions: NormalizedSchema) {
     '--group',
     'dev',
   ];
-  spawn.sync(executable, installArgs, {
+  console.log(`executable: ${executable}`);
+  console.log(`installArgs: ${installArgs}`);
+  spawnSync(executable, installArgs, {
     shell: false,
     stdio: 'inherit',
   });

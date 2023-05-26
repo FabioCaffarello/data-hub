@@ -3,19 +3,50 @@ name = "data-hub"
 version = "0.1.0"
 description = ""
 authors = [ "FabioCaffarello <fabio.caffarello@gmail.com>" ]
+license = "Proprietary"
 readme = "README.md"
 
   [tool.poetry.dependencies]
   python = ">=3.8,<3.10"
 
     [tool.poetry.dependencies.shared-core]
-    path = "libs/shared/python-tools/core"
+    path = "libs/shared/python_tools/core"
     develop = true
 
-    [tool.poetry.dependencies.shared-development]
-    path = "libs/shared/python-tools/development"
+    [tool.poetry.dependencies.base-spider]
+    path = "libs/ingestors/base-spider"
     develop = true
+
+    [tool.poetry.dependencies.mercadobitcoin-trades]
+    path = "apps/ingestors/financial/mercadobitcoin/trades"
+    develop = true
+
+    [tool.poetry.dependencies.base-parser]
+    path = "libs/ingestors/base-parser"
+    develop = true
+
+    [tool.poetry.dependencies.mercadobitcoin-tickers]
+    path = "apps/ingestors/financial/mercadobitcoin/tickers"
+    develop = true
+
+[tool.poetry.group.dev.dependencies.shared-development]
+path = "libs/shared/python_tools/development"
+develop = true
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.4.2"
+mkdocs-material = "^9.0.2"
+mkdocs-material-extensions = "^1.1.1"
+mkdocs-autorefs = "^0.4.1"
+mkdocstrings = "^0.19.1"
+mkdocstrings-python = "^0.8.3"
+mkdocs-gen-files = "^0.4.0"
+mkdocs-literate-nav = "^0.6.0"
+mkdocs-include-markdown-plugin = "^4.0.3"
+mkdocs-swagger-ui-tag = "^0.5.1"
+plantuml-markdown = "^3.8.0"
+
 
 [build-system]
-requires = [ "poetry-core" ]
+requires = [ "poetry-core==1.1.0b3" ]
 build-backend = "poetry.core.masonry.api"
