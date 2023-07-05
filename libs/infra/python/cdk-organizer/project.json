@@ -1,0 +1,82 @@
+{
+  "name": "infra-python-cdk-organizer",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/infra/python/cdk-organizer/cdk_organizer",
+  "targets": {
+    "docs": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "pydoc-markdown -p cdk_organizer --render-toc > docs/source/api.md",
+        "cwd": "libs/infra/python/cdk-organizer"
+      }
+    },
+    "lock": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "poetry lock --no-update",
+        "cwd": "libs/infra/python/cdk-organizer"
+      }
+    },
+    "add": {
+      "executor": "@nxlv/python:add",
+      "options": {}
+    },
+    "update": {
+      "executor": "@nxlv/python:update",
+      "options": {}
+    },
+    "remove": {
+      "executor": "@nxlv/python:remove",
+      "options": {}
+    },
+    "build": {
+      "executor": "@nxlv/python:build",
+      "outputs": ["libs/infra/python/cdk-organizer/dist"],
+      "options": {
+        "outputPath": "libs/infra/python/cdk-organizer/dist",
+        "publish": true
+      }
+    },
+    "install": {
+      "executor": "@nxlv/python:install",
+      "options": {
+        "silent": false,
+        "args": "",
+        "cacheDir": ".cache/pypoetry",
+        "verbose": false,
+        "debug": false
+      }
+    },
+    "lint": {
+      "executor": "@nxlv/python:flake8",
+      "outputs": ["reports/libs/infra/python/cdk-organizer/pylint.txt"],
+      "options": {
+        "outputFile": "reports/libs/infra/python/cdk-organizer/pylint.txt"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [
+        "reports/libs/infra/python/cdk-organizer/unittests",
+        "coverage/libs/infra/python/cdk-organizer"
+      ],
+      "options": {
+        "command": "poetry run pytest tests/",
+        "cwd": "libs/infra/python/cdk-organizer"
+      }
+    },
+    "tox": {
+      "executor": "@nxlv/python:tox",
+      "outputs": [
+        "reports/libs/infra/python/cdk-organizer/unittests",
+        "coverage/libs/infra/python/cdk-organizer"
+      ],
+      "options": {
+        "silent": false,
+        "args": ""
+      }
+    }
+  },
+  "tags": []
+}

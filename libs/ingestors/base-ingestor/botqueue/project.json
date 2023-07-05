@@ -1,0 +1,82 @@
+{
+  "name": "ingestors-base-ingestor-botqueue",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/ingestors/base-ingestor/botqueue/botqueue",
+  "targets": {
+    "docs": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "pydoc-markdown -p botqueue --render-toc > docs/source/api.md",
+        "cwd": "libs/ingestors/base-ingestor/botqueue"
+      }
+    },
+    "lock": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "poetry lock --no-update",
+        "cwd": "libs/ingestors/base-ingestor/botqueue"
+      }
+    },
+    "add": {
+      "executor": "@nxlv/python:add",
+      "options": {}
+    },
+    "update": {
+      "executor": "@nxlv/python:update",
+      "options": {}
+    },
+    "remove": {
+      "executor": "@nxlv/python:remove",
+      "options": {}
+    },
+    "build": {
+      "executor": "@nxlv/python:build",
+      "outputs": ["libs/ingestors/base-ingestor/botqueue/dist"],
+      "options": {
+        "outputPath": "libs/ingestors/base-ingestor/botqueue/dist",
+        "publish": true
+      }
+    },
+    "install": {
+      "executor": "@nxlv/python:install",
+      "options": {
+        "silent": false,
+        "args": "",
+        "cacheDir": ".cache/pypoetry",
+        "verbose": false,
+        "debug": false
+      }
+    },
+    "lint": {
+      "executor": "@nxlv/python:flake8",
+      "outputs": ["reports/libs/ingestors/base-ingestor/botqueue/pylint.txt"],
+      "options": {
+        "outputFile": "reports/libs/ingestors/base-ingestor/botqueue/pylint.txt"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [
+        "reports/libs/ingestors/base-ingestor/botqueue/unittests",
+        "coverage/libs/ingestors/base-ingestor/botqueue"
+      ],
+      "options": {
+        "command": "poetry run pytest tests/",
+        "cwd": "libs/ingestors/base-ingestor/botqueue"
+      }
+    },
+    "tox": {
+      "executor": "@nxlv/python:tox",
+      "outputs": [
+        "reports/libs/ingestors/base-ingestor/botqueue/unittests",
+        "coverage/libs/ingestors/base-ingestor/botqueue"
+      ],
+      "options": {
+        "silent": false,
+        "args": ""
+      }
+    }
+  },
+  "tags": []
+}

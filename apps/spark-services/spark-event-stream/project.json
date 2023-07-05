@@ -1,0 +1,71 @@
+{
+  "name": "spark-services-spark-event-stream",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/spark-services/spark-event-stream/event_stream",
+  "targets": {
+    "docs": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "pydoc-markdown -p event_stream --render-toc > docs/source/api.md",
+        "cwd": "apps/spark-services/spark-event-stream"
+      }
+    },
+    "lock": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "poetry lock --no-update",
+        "cwd": "apps/spark-services/spark-event-stream"
+      }
+    },
+    "add": {
+      "executor": "@nxlv/python:add",
+      "options": {}
+    },
+    "update": {
+      "executor": "@nxlv/python:update",
+      "options": {}
+    },
+    "remove": {
+      "executor": "@nxlv/python:remove",
+      "options": {}
+    },
+    "build": {
+      "executor": "@nxlv/python:build",
+      "outputs": ["apps/spark-services/spark-event-stream/dist"],
+      "options": {
+        "outputPath": "apps/spark-services/spark-event-stream/dist",
+        "publish": true
+      }
+    },
+    "install": {
+      "executor": "@nxlv/python:install",
+      "options": {
+        "silent": false,
+        "args": "",
+        "cacheDir": ".cache/pypoetry",
+        "verbose": false,
+        "debug": false
+      }
+    },
+    "lint": {
+      "executor": "@nxlv/python:flake8",
+      "outputs": ["reports/apps/spark-services/spark-event-stream/pylint.txt"],
+      "options": {
+        "outputFile": "reports/apps/spark-services/spark-event-stream/pylint.txt"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [
+        "reports/apps/spark-services/spark-event-stream/unittests",
+        "coverage/apps/spark-services/spark-event-stream"
+      ],
+      "options": {
+        "command": "poetry run pytest tests/",
+        "cwd": "apps/spark-services/spark-event-stream"
+      }
+    }
+  },
+  "tags": []
+}

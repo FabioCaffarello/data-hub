@@ -1,0 +1,4 @@
+# All 2XX success
+OK = 200
+EOS = 207
+PARTIAL_STREAM = 206

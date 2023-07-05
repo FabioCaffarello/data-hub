@@ -1,0 +1,82 @@
+{
+  "name": "ingestors-base-ingestor-pydebug",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/ingestors/base-ingestor/pydebug/pydebug",
+  "targets": {
+    "docs": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "pydoc-markdown -p pydebug --render-toc > docs/source/api.md",
+        "cwd": "libs/ingestors/base-ingestor/pydebug"
+      }
+    },
+    "lock": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "poetry lock --no-update",
+        "cwd": "libs/ingestors/base-ingestor/pydebug"
+      }
+    },
+    "add": {
+      "executor": "@nxlv/python:add",
+      "options": {}
+    },
+    "update": {
+      "executor": "@nxlv/python:update",
+      "options": {}
+    },
+    "remove": {
+      "executor": "@nxlv/python:remove",
+      "options": {}
+    },
+    "build": {
+      "executor": "@nxlv/python:build",
+      "outputs": ["libs/ingestors/base-ingestor/pydebug/dist"],
+      "options": {
+        "outputPath": "libs/ingestors/base-ingestor/pydebug/dist",
+        "publish": true
+      }
+    },
+    "install": {
+      "executor": "@nxlv/python:install",
+      "options": {
+        "silent": false,
+        "args": "",
+        "cacheDir": ".cache/pypoetry",
+        "verbose": false,
+        "debug": false
+      }
+    },
+    "lint": {
+      "executor": "@nxlv/python:flake8",
+      "outputs": ["reports/libs/ingestors/base-ingestor/pydebug/pylint.txt"],
+      "options": {
+        "outputFile": "reports/libs/ingestors/base-ingestor/pydebug/pylint.txt"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [
+        "reports/libs/ingestors/base-ingestor/pydebug/unittests",
+        "coverage/libs/ingestors/base-ingestor/pydebug"
+      ],
+      "options": {
+        "command": "poetry run pytest tests/",
+        "cwd": "libs/ingestors/base-ingestor/pydebug"
+      }
+    },
+    "tox": {
+      "executor": "@nxlv/python:tox",
+      "outputs": [
+        "reports/libs/ingestors/base-ingestor/pydebug/unittests",
+        "coverage/libs/ingestors/base-ingestor/pydebug"
+      ],
+      "options": {
+        "silent": false,
+        "args": ""
+      }
+    }
+  },
+  "tags": []
+}

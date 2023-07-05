@@ -29,6 +29,66 @@ readme = "README.md"
     path = "apps/ingestors/financial/mercadobitcoin/tickers"
     develop = true
 
+    [tool.poetry.dependencies.youtube-videos]
+    path = "apps/ingestors/media/youtube/videos"
+    develop = true
+
+    [tool.poetry.dependencies.base-crawler]
+    path = "libs/ingestors/base-crawler"
+    develop = true
+
+    [tool.poetry.dependencies.botargparse]
+    path = "libs/ingestors/base-ingestor/botargparse"
+    develop = true
+
+    [tool.poetry.dependencies.botlog]
+    path = "libs/ingestors/base-ingestor/botlog"
+    develop = true
+
+    [tool.poetry.dependencies.botqueue]
+    path = "libs/ingestors/base-ingestor/botqueue"
+    develop = true
+
+    [tool.poetry.dependencies.pysd]
+    path = "libs/ingestors/base-ingestor/pysd"
+    develop = true
+
+    [tool.poetry.dependencies.botstatscollector]
+    path = "libs/ingestors/base-ingestor/botstatscollector"
+    develop = true
+
+    [tool.poetry.dependencies.pyoutput]
+    path = "libs/ingestors/base-ingestor/pyoutput"
+    develop = true
+
+    [tool.poetry.dependencies.pystatus]
+    path = "libs/ingestors/base-ingestor/pystatus"
+    develop = true
+
+    [tool.poetry.dependencies.pydebug]
+    path = "libs/ingestors/base-ingestor/pydebug"
+    develop = true
+
+    [tool.poetry.dependencies.pyrepository]
+    path = "libs/ingestors/base-ingestor/pyrepository"
+    develop = true
+
+    [tool.poetry.dependencies.torproxy]
+    path = "libs/ingestors/base-ingestor/tor-proxy"
+    develop = true
+
+    [tool.poetry.dependencies.templates]
+    path = "apps/infra/python/aws/cdktf-organizer"
+    develop = true
+
+    [tool.poetry.dependencies.cdk_organizer]
+    path = "libs/infra/python/cdk-organizer"
+    develop = true
+
+    [tool.poetry.dependencies.event_stream]
+    path = "apps/spark-services/spark-event-stream"
+    develop = true
+
 [tool.poetry.group.dev.dependencies.shared-development]
 path = "libs/shared/python_tools/development"
 develop = true
@@ -45,7 +105,6 @@ mkdocs-literate-nav = "^0.6.0"
 mkdocs-include-markdown-plugin = "^4.0.3"
 mkdocs-swagger-ui-tag = "^0.5.1"
 plantuml-markdown = "^3.8.0"
-
 
 [build-system]
 requires = [ "poetry-core==1.1.0b3" ]

@@ -1,0 +1,32 @@
+[tool.coverage.run]
+branch = true
+source = [ "botargparse" ]
+
+[tool.coverage.report]
+exclude_lines = [ "if TYPE_CHECKING:" ]
+show_missing = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-fail-under=100 --cov-report html:'../../../../coverage/libs/ingestors/base-ingestor/botargparse/html' --cov-report xml:'../../../../coverage/libs/ingestors/base-ingestor/botargparse/coverage.xml' --junitxml='../../../../reports/libs/ingestors/base-ingestor/botargparse/unittests/junit.xml' --html='../../../../reports/libs/ingestors/base-ingestor/botargparse/unittests/html/index.html'"
+
+[tool.poetry]
+name = "botargparse"
+version = "1.0.0"
+description = ""
+authors = [ ]
+license = "Proprietary"
+readme = "README.md"
+
+  [[tool.poetry.packages]]
+  include = "botargparse"
+
+  [tool.poetry.dependencies]
+  python = ">=3.8,<3.10"
+
+[tool.poetry.group.dev.dependencies.shared-development]
+path = "../../../shared/python_tools/development"
+develop = true
+
+[build-system]
+requires = [ "poetry-core==1.1.0" ]
+build-backend = "poetry.core.masonry.api"

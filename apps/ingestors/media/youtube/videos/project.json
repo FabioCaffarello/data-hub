@@ -1,0 +1,82 @@
+{
+  "name": "ingestors-media-youtube-videos",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/ingestors/media/youtube/videos/bot",
+  "targets": {
+    "docs": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "pydoc-markdown -p bot --render-toc > docs/source/api.md",
+        "cwd": "apps/ingestors/media/youtube/videos"
+      }
+    },
+    "lock": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "poetry lock --no-update",
+        "cwd": "apps/ingestors/media/youtube/videos"
+      }
+    },
+    "add": {
+      "executor": "@nxlv/python:add",
+      "options": {}
+    },
+    "update": {
+      "executor": "@nxlv/python:update",
+      "options": {}
+    },
+    "remove": {
+      "executor": "@nxlv/python:remove",
+      "options": {}
+    },
+    "build": {
+      "executor": "@nxlv/python:build",
+      "outputs": ["apps/ingestors/media/youtube/videos/dist"],
+      "options": {
+        "outputPath": "apps/ingestors/media/youtube/videos/dist",
+        "publish": true
+      }
+    },
+    "install": {
+      "executor": "@nxlv/python:install",
+      "options": {
+        "silent": false,
+        "args": "",
+        "cacheDir": ".cache/pypoetry",
+        "verbose": false,
+        "debug": false
+      }
+    },
+    "lint": {
+      "executor": "@nxlv/python:flake8",
+      "outputs": ["reports/apps/ingestors/media/youtube/videos/pylint.txt"],
+      "options": {
+        "outputFile": "reports/apps/ingestors/media/youtube/videos/pylint.txt"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [
+        "reports/apps/ingestors/media/youtube/videos/unittests",
+        "coverage/apps/ingestors/media/youtube/videos"
+      ],
+      "options": {
+        "command": "poetry run pytest tests/",
+        "cwd": "apps/ingestors/media/youtube/videos"
+      }
+    },
+    "tox": {
+      "executor": "@nxlv/python:tox",
+      "outputs": [
+        "reports/apps/ingestors/media/youtube/videos/unittests",
+        "coverage/apps/ingestors/media/youtube/videos"
+      ],
+      "options": {
+        "silent": false,
+        "args": ""
+      }
+    }
+  },
+  "tags": []
+}

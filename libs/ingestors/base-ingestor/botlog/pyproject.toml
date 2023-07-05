@@ -1,0 +1,32 @@
+[tool.coverage.run]
+branch = true
+source = [ "botlog" ]
+
+[tool.coverage.report]
+exclude_lines = [ "if TYPE_CHECKING:" ]
+show_missing = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-fail-under=100 --cov-report html:'../../../../coverage/libs/ingestors/base-ingestor/botlog/html' --cov-report xml:'../../../../coverage/libs/ingestors/base-ingestor/botlog/coverage.xml' --junitxml='../../../../reports/libs/ingestors/base-ingestor/botlog/unittests/junit.xml' --html='../../../../reports/libs/ingestors/base-ingestor/botlog/unittests/html/index.html'"
+
+[tool.poetry]
+name = "botlog"
+version = "1.0.0"
+description = ""
+authors = [ ]
+license = "Proprietary"
+readme = "README.md"
+
+  [[tool.poetry.packages]]
+  include = "botlog"
+
+  [tool.poetry.dependencies]
+  python = ">=3.8,<3.10"
+
+[tool.poetry.group.dev.dependencies.shared-development]
+path = "../../../shared/python_tools/development"
+develop = true
+
+[build-system]
+requires = [ "poetry-core==1.1.0" ]
+build-backend = "poetry.core.masonry.api"

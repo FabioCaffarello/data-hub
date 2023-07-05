@@ -1,0 +1,56 @@
+[tool.coverage.run]
+branch = true
+source = [ "crawler" ]
+
+[tool.coverage.report]
+exclude_lines = [ "if TYPE_CHECKING:" ]
+show_missing = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-fail-under=100 --cov-report html:'../../../coverage/libs/ingestors/base-crawler/html' --cov-report xml:'../../../coverage/libs/ingestors/base-crawler/coverage.xml' --junitxml='../../../reports/libs/ingestors/base-crawler/unittests/junit.xml' --html='../../../reports/libs/ingestors/base-crawler/unittests/html/index.html'"
+
+[tool.poetry]
+name = "base-crawler"
+version = "1.0.0"
+description = "base-crawler"
+authors = [ ]
+license = "Proprietary"
+readme = "README.md"
+
+  [[tool.poetry.packages]]
+  include = "crawler"
+
+  [tool.poetry.dependencies]
+  python = ">=3.8,<3.10"
+  Scrapy = "^2.9.0"
+  youtube_dl = "^2021.12.17"
+  pytube = "^15.0.0"
+  pika = "^1.3.2"
+
+    [tool.poetry.dependencies.botargparse]
+    path = "../base-ingestor/botargparse"
+    develop = true
+
+    [tool.poetry.dependencies.botlog]
+    path = "../base-ingestor/botlog"
+    develop = true
+
+    [tool.poetry.dependencies.botstatscollector]
+    path = "../base-ingestor/botstatscollector"
+    develop = true
+
+    [tool.poetry.dependencies.pyoutput]
+    path = "../base-ingestor/pyoutput"
+    develop = true
+
+    [tool.poetry.dependencies.pystatus]
+    path = "../base-ingestor/pystatus"
+    develop = true
+
+    [tool.poetry.dependencies.pydebug]
+    path = "../base-ingestor/pydebug"
+    develop = true
+
+[build-system]
+requires = [ "poetry-core==1.1.0" ]
+build-backend = "poetry.core.masonry.api"

@@ -28,7 +28,14 @@ services:
   #     - mongodb
   #   networks:
   #     - data-hub-network
+  # spark-event-stream:
+  #   image: event-event-stream:latest
+  #   links:
+  #     - rabbitmq
+  #   networks:
+  #     - data-hub-network
+
 networks:
   data-hub-network:
-    external: true
+    # external: true
     driver: bridge

@@ -1,0 +1,101 @@
+{
+  "name": "infra-python-aws-cdktf-organizer",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/infra/python/aws/cdktf-organizer/templates",
+  "targets": {
+    "docs": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "pydoc-markdown -p templates --render-toc > docs/source/api.md",
+        "cwd": "apps/infra/python/aws/cdktf-organizer"
+      }
+    },
+    "lock": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "poetry lock --no-update",
+        "cwd": "apps/infra/python/aws/cdktf-organizer"
+      }
+    },
+    "add": {
+      "executor": "@nxlv/python:add",
+      "options": {}
+    },
+    "update": {
+      "executor": "@nxlv/python:update",
+      "options": {}
+    },
+    "remove": {
+      "executor": "@nxlv/python:remove",
+      "options": {}
+    },
+    "build": {
+      "executor": "@nxlv/python:build",
+      "outputs": ["apps/infra/python/aws/cdktf-organizer/dist"],
+      "options": {
+        "outputPath": "apps/infra/python/aws/cdktf-organizer/dist",
+        "publish": true
+      }
+    },
+    "install": {
+      "executor": "@nxlv/python:install",
+      "options": {
+        "silent": false,
+        "args": "",
+        "cacheDir": ".cache/pypoetry",
+        "verbose": false,
+        "debug": false
+      }
+    },
+    "lint": {
+      "executor": "@nxlv/python:flake8",
+      "outputs": ["reports/apps/infra/python/aws/cdktf-organizer/pylint.txt"],
+      "options": {
+        "outputFile": "reports/apps/infra/python/aws/cdktf-organizer/pylint.txt"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [
+        "reports/apps/infra/python/aws/cdktf-organizer/unittests",
+        "coverage/apps/infra/python/aws/cdktf-organizer"
+      ],
+      "options": {
+        "command": "poetry run pytest tests/",
+        "cwd": "apps/infra/python/aws/cdktf-organizer"
+      }
+    },
+    "deploy": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "source ../../../../../.venv/bin/activate && npx cdktf deploy \"{args.stacks}\" -c env={args.env} --profile {args.profile}"
+        ],
+        "cwd": "apps/infra/python/aws/cdktf-organizer",
+        "parallel": false
+      }
+    },
+    "synth": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "source ../../../../../.venv/bin/activate && npx cdktf synth \"{args.stacks}\" -c env={args.env} --profile {args.profile}"
+        ],
+        "cwd": "apps/infra/python/aws/cdktf-organizer",
+        "parallel": false
+      }
+    },
+    "diff": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          "source ../../../../../.venv/bin/activate && npx cdktf diff \"{args.stacks}\" -c env={args.env} --profile {args.profile}"
+        ],
+        "cwd": "apps/infra/python/aws/cdktf-organizer",
+        "parallel": false
+      }
+    }
+  },
+  "tags": []
+}

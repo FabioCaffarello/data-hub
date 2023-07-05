@@ -1,0 +1,34 @@
+[tool.coverage.run]
+branch = true
+source = [ "templates" ]
+
+[tool.coverage.report]
+exclude_lines = [ "if TYPE_CHECKING:" ]
+show_missing = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-fail-under=100 --cov-report html:'../../../../../coverage/apps/infra/python/aws/cdktf-organizer/html' --cov-report xml:'../../../../../coverage/apps/infra/python/aws/cdktf-organizer/coverage.xml' --junitxml='../../../../../reports/apps/infra/python/aws/cdktf-organizer/unittests/junit.xml' --html='../../../../../reports/apps/infra/python/aws/cdktf-organizer/unittests/html/index.html'"
+
+[tool.poetry]
+name = "templates"
+version = "1.0.0"
+description = ""
+authors = [ ]
+license = "Proprietary"
+readme = "README.md"
+
+  [[tool.poetry.packages]]
+  include = "templates"
+
+  [tool.poetry.dependencies]
+  python = ">=3.8,<3.10"
+  cdktf = "0.15.5"
+  cdktf-cdktf-provider-aws = "^12.0.9"
+
+    [tool.poetry.dependencies.cdk_organizer]
+    path = "../../../../../libs/infra/python/cdk-organizer"
+    develop = true
+
+[build-system]
+requires = [ "poetry-core==1.1.0" ]
+build-backend = "poetry.core.masonry.api"

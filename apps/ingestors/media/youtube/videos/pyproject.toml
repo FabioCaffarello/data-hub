@@ -1,0 +1,30 @@
+[tool.coverage.run]
+branch = true
+source = [ "bot" ]
+
+[tool.coverage.report]
+exclude_lines = ['if TYPE_CHECKING:']
+show_missing = true
+
+[tool.pytest.ini_options]
+addopts = "--cov --cov-fail-under=100 --cov-report html:'../../../../../coverage/apps/ingestors/media/youtube/videos/html' --cov-report xml:'../../../../../coverage/apps/ingestors/media/youtube/videos/coverage.xml' --junitxml='../../../../../reports/apps/ingestors/media/youtube/videos/unittests/junit.xml' --html='../../../../../reports/apps/ingestors/media/youtube/videos/unittests/html/index.html'"
+
+[tool.poetry]
+name = "youtube-videos"
+version = "1.0.0"
+description = "crawler of youtube videos"
+authors = [ ]
+license = 'Proprietary'
+readme = 'README.md'
+
+  [[tool.poetry.packages]]
+  include = "bot"
+
+  [tool.poetry.dependencies]
+  python = ">=3.8,<3.10"
+
+  
+
+[build-system]
+requires = ["poetry-core==1.1.0"]
+build-backend = "poetry.core.masonry.api"

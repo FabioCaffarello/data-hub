@@ -8,25 +8,17 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "target": "es2015",
+    "target": "es2017",
     "module": "esnext",
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@data-hub/bot-tools": [
-        "libs/nx-plugins/bot-tools/src/index.ts"
-      ],
-      "@data-hub/project-tools": [
-        "libs/nx-plugins/project-tools/src/index.ts"
-      ],
-      "@data-hub/python-tools": [
-        "libs/nx-plugins/python-tools/src/index.ts"
-      ],
-      "@data-hub/cdktf": [
-        "libs/infra/cdktf-typescript/aws/src/index.ts"
-      ],
+      "@data-hub/bot-tools": ["libs/nx-plugins/bot-tools/src/index.ts"],
+      "@data-hub/cdktf": ["libs/infra/cdktf-typescript/aws/src/index.ts"],
+      "@data-hub/project-tools": ["libs/nx-plugins/project-tools/src/index.ts"],
+      "@data-hub/python-tools": ["libs/nx-plugins/python-tools/src/index.ts"],
       "@data-hub/sd-nest/data-access-dtos": [
         "libs/sd-nest/data-access-dtos/src/index.ts"
       ],
@@ -41,6 +33,18 @@
       ],
       "@data-hub/sd-nest/utils-config": [
         "libs/sd-nest/utils-config/src/index.ts"
+      ],
+      "@data-hub/videos-catalog/@core/@seedwork/*": [
+        "libs/videos-catalog/@core/@seedwork/src/*"
+      ],
+      "@data-hub/videos-catalog/@core/cast-member/*": [
+        "libs/videos-catalog/@core/cast-member/src/*"
+      ],
+      "@data-hub/videos-catalog/@core/category": [
+        "libs/videos-catalog/@core/category/src/index.ts"
+      ],
+      "@data-hub/videos-catalog/@core/genre": [
+        "libs/videos-catalog/@core/genre/src/index.ts"
       ]
     }
   },

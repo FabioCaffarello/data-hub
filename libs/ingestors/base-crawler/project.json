@@ -1,0 +1,82 @@
+{
+  "name": "ingestors-base-crawler",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/ingestors/base-crawler/crawler",
+  "targets": {
+    "docs": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "pydoc-markdown -p crawler --render-toc > docs/source/api.md",
+        "cwd": "libs/ingestors/base-crawler"
+      }
+    },
+    "lock": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "poetry lock --no-update",
+        "cwd": "libs/ingestors/base-crawler"
+      }
+    },
+    "add": {
+      "executor": "@nxlv/python:add",
+      "options": {}
+    },
+    "update": {
+      "executor": "@nxlv/python:update",
+      "options": {}
+    },
+    "remove": {
+      "executor": "@nxlv/python:remove",
+      "options": {}
+    },
+    "build": {
+      "executor": "@nxlv/python:build",
+      "outputs": ["libs/ingestors/base-crawler/dist"],
+      "options": {
+        "outputPath": "libs/ingestors/base-crawler/dist",
+        "publish": true
+      }
+    },
+    "install": {
+      "executor": "@nxlv/python:install",
+      "options": {
+        "silent": false,
+        "args": "",
+        "cacheDir": ".cache/pypoetry",
+        "verbose": false,
+        "debug": false
+      }
+    },
+    "lint": {
+      "executor": "@nxlv/python:flake8",
+      "outputs": ["reports/libs/ingestors/base-crawler/pylint.txt"],
+      "options": {
+        "outputFile": "reports/libs/ingestors/base-crawler/pylint.txt"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [
+        "reports/libs/ingestors/base-crawler/unittests",
+        "coverage/libs/ingestors/base-crawler"
+      ],
+      "options": {
+        "command": "poetry run pytest tests/",
+        "cwd": "libs/ingestors/base-crawler"
+      }
+    },
+    "tox": {
+      "executor": "@nxlv/python:tox",
+      "outputs": [
+        "reports/libs/ingestors/base-crawler/unittests",
+        "coverage/libs/ingestors/base-crawler"
+      ],
+      "options": {
+        "silent": false,
+        "args": ""
+      }
+    }
+  },
+  "tags": []
+}
